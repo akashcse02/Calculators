@@ -6,22 +6,73 @@
     <title>Calculators</title>
     <link rel="stylesheet" href="./Styles/style.css">
 </head>
-    <header>
-        <h1>Calculators AM</h1>
-        
-        <nav>
+  <header class="site-header">
+    <div class="header-container">
+
+        <a href="#home" class="brand">
+            <img
+                src="./images/logo.png"
+                width="50"
+                height="50"
+                alt="Calculators AM Logo"
+            >
+
+            <div class="brand-text">
+                <h1>Calculators AM</h1>
+                <span>Smart and Simple Calculations</span>
+            </div>
+        </a>
+
+        <nav class="main-nav" aria-label="Main navigation">
             <ul>
-                <img src="./images/logo.png" width="50px" height="50px" alt="Logo">
-                <li><a href="./index.html">Home</a></li>
-                <li><a href="./calculator.html"> Simple Calculator</a></li>
-                <li><a href="./bmi.html"> Grade Calculator</a></li>
-                <li><a href="./tip.html">Tip Calculator</a></li>
-                <li><a href="./loan.html">About</a></li>
+                <li>
+                    <a href="#home" class="active">Home</a>
+                </li>
+
+                <li>
+                    <a href="#simple">Simple Calculator</a>
+                </li>
+
+                <li>
+                    <a href="#grade">Grade Calculator</a>
+                </li>
+
+                <li>
+                    <a href="#tip">Tip Calculator</a>
+                </li>
+
+                <li>
+                    <a href="#about">About</a>
+                </li>
             </ul>
         </nav>
-    </header>
 
+    </div>
+</header>
 <body>
+   <section class="about-section">
+    <div class="About">
+        <h2>
+            <img
+                src="./images/about.png"
+                width="25"
+                height="25"
+                alt="About icon"
+            >
+            About
+        </h2>
+
+        <p>
+            Welcome to Calculators AM! Our website provides useful calculators
+            to make everyday calculations faster and easier. You can perform
+            basic arithmetic operations with the Simple Calculator, calculate
+            academic grades with the Grade Calculator, and determine restaurant
+            tips using the Tip Calculator. Our goal is to provide a simple,
+            accurate, and user-friendly calculation experience. Thank you for
+            visiting our website!
+        </p>
+    </div>
+</section>
     <section>
         <div class="Simple-calculator">
         <h2><img src="./images/calculator.png" width="25px" height="25px" alt="Calculator">Simple Calculator</h2>
@@ -44,6 +95,8 @@
                 placeholder="Result will be shown here"
                 readonly>
         </section>
+        <button type="button" id="calculate">Calculate</button>
+<button type="button" id="simple-refresh" class="refresh-btn">Refresh</button>
        
             </div>
         </div>
@@ -54,7 +107,7 @@
             <h2><img src="./images/grade.png" width="25px" height="25px" alt="Grade">Grade Calculator</h2>
             <div class="box">
                 <input type="text" id="marks" placeholder="Enter your marks">
-                <button id="calculate-grade">Calculate Grade</button>
+                <button id="btn">Calculate Grade</button>
                 <section class="result">
                     <input
                         type="text"
@@ -62,8 +115,11 @@
                         placeholder="Your grade will be shown here"
                         readonly>
                 </section>
+                <button type="button" id="btn">Calculate Grade</button>
+<button type="button" id="grade-refresh" class="refresh-btn">Refresh</button>
             </div>
         </div>
+    </section>
      <script src="./script.js"></script>
 
 </body>
