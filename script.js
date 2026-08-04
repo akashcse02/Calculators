@@ -36,3 +36,26 @@ document.getElementById('calculate').addEventListener('click', () => {
         resultEl.value='Error: ' + error.message;
     }
 });
+//Grade Calculator
+
+const input=document.getElementById('marks');
+const btn=document.getElementById('calculate-grade');
+const out=document.getElementById('out');
+
+
+
+//grade calculation function
+function calculateGrade(marks) {
+    if (marks >= 80) { return { grade: 'A+', pass: true, msg: 'Congratulations!' }; }
+    else if (marks >= 75) { return { grade: 'A', pass: true, msg: 'Well done!' }; }
+    else if (marks >= 70) { return { grade: 'A-', pass: true, msg: 'Good job!' }; }
+    else if (marks >= 65) { return { grade: 'B+', pass: true, msg: 'Keep it up!' }; }
+    else if (marks >= 60) { return { grade: 'B', pass: true, msg: 'Nice work!' }; }
+    else if (marks >= 55) { return { grade: 'B-', pass: true, msg: 'You can do better!' }; }
+    else if (marks >= 50) { return { grade: 'C', pass: true, msg: 'You passed!' }; }
+    else if (marks >= 45) { return { grade: 'D', pass: true, msg: 'You passed!' }; }
+    else if(marks>=32) { return { grade: 'F', pass: false, msg: 'You failed!' }; }
+    else { return { grade: 'F', pass: false, msg: 'You failed!' }; }
+}
+
+    
