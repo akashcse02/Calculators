@@ -1,0 +1,69 @@
+
+.Simple-calculator h2 {
+    vertical-align: middle;
+    margin-right: 10px;
+    text-align: center;
+}
+.box{
+border: 1px solid #070111;
+background:url(/Images/Cal.png)center center;
+background-size: cover;
+border-radius: 10px;
+ width: 320px;
+  min-height: 350px;
+  padding: 20px;
+  margin: 50px auto;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  box-sizing: border-box;
+}
+input[type="text"] {
+    color: white;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  box-sizing: border-box;
+  background: linear-gradient(to right, #002838, #002a68);
+  box-shadow: 0 0 5px #4aafb3;
+
+}
+#calculate{
+
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+  background: linear-gradient(to right, #002838, #002a68);
+    color: white;
+    cursor: pointer;
+}
+#calculate:hover {
+    background: linear-gradient(to right, #7661f0, #1974fc);
+
+}
+input[type="button"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  background: linear-gradient(to right, #002838, #002a68);
+  color: white;
+  cursor: pointer;
+}
+input[type="button"]:hover {
+  background: linear-gradient(to right, #7661f0, #1974fc);
+  
+}
+input[type="button"]:active {
+  background: linear-gradient(to right, #002838, #002a68);
+}
+input[type="button"]:focus {
+  outline: none;
+}
+input[type="button"]:focus {
+  outline: none;
+}
