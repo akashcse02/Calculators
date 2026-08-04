@@ -1,126 +1,348 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculators</title>
+
+    <title>Calculators AM</title>
+
     <link rel="stylesheet" href="./Styles/style.css">
 </head>
-  <header class="site-header">
-    <div class="header-container">
 
-        <a href="#home" class="brand">
-            <img
-                src="./images/logo.png"
-                width="50"
-                height="50"
-                alt="Calculators AM Logo"
-            >
+<body>
 
-            <div class="brand-text">
-                <h1>Calculators AM</h1>
-                <span>Smart and Simple Calculations</span>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-container">
+
+            <a href="#home" class="brand">
+                <img
+                    src="./images/logo.png"
+                    width="50"
+                    height="50"
+                    alt="Calculators AM Logo"
+                >
+
+                <div class="brand-text">
+                    <h1>Calculators AM</h1>
+                    <span>Smart and Simple Calculations</span>
+                </div>
+            </a>
+
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li>
+                        <a href="#home" class="active">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="#simple">Simple Calculator</a>
+                    </li>
+
+                    <li>
+                        <a href="#grade">Grade Calculator</a>
+                    </li>
+
+                    <li>
+                        <a href="#tip">Tip Calculator</a>
+                    </li>
+
+                    <li>
+                        <a href="#about">About</a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Home Section -->
+        <section id="home" class="home-section">
+            <div class="home-content">
+                <h2>Welcome to Calculators AM</h2>
+
+                <p>
+                    Fast, simple, and accurate calculators for your everyday needs.
+                </p>
+
+                <a href="#simple" class="home-btn">
+                    Start Calculating
+                </a>
             </div>
-        </a>
+        </section>
 
-        <nav class="main-nav" aria-label="Main navigation">
-            <ul>
-                <li>
-                    <a href="#home" class="active">Home</a>
-                </li>
+        <!-- Simple Calculator -->
+        <section id="simple">
+            <div class="Simple-calculator">
 
-                <li>
-                    <a href="#simple">Simple Calculator</a>
-                </li>
+                <h2>
+                    <img
+                        src="./images/calculator.png"
+                        width="25"
+                        height="25"
+                        alt="Calculator icon"
+                    >
+                    Simple Calculator
+                </h2>
 
-                <li>
-                    <a href="#grade">Grade Calculator</a>
-                </li>
+                <div class="box">
 
-                <li>
-                    <a href="#tip">Tip Calculator</a>
-                </li>
+                    <input
+                        type="number"
+                        id="a"
+                        placeholder="Enter first number"
+                        step="any"
+                    >
 
-                <li>
-                    <a href="#about">About</a>
-                </li>
-            </ul>
-        </nav>
+                    <select id="op" aria-label="Select an operator">
+                        <option value="+">+</option>
+                        <option value="-">−</option>
+                        <option value="*">×</option>
+                        <option value="/">÷</option>
+                    </select>
+
+                    <input
+                        type="number"
+                        id="b"
+                        placeholder="Enter second number"
+                        step="any"
+                    >
+
+                    <button type="button" id="calculate">
+                        Calculate
+                    </button>
+
+                    <div class="result">
+                        <input
+                            type="text"
+                            id="result"
+                            placeholder="Result will be shown here"
+                            readonly
+                        >
+                    </div>
+
+                    <button
+                        type="button"
+                        id="simple-refresh"
+                        class="refresh-btn"
+                    >
+                        Refresh
+                    </button>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Grade Calculator -->
+        <section id="grade">
+            <div class="Grade-calculator">
+
+                <h2>
+                    <img
+                        src="./images/grade.png"
+                        width="25"
+                        height="25"
+                        alt="Grade icon"
+                    >
+                    Grade Calculator
+                </h2>
+
+                <div class="box">
+
+                    <input
+                        type="number"
+                        id="marks"
+                        placeholder="Enter your marks"
+                        min="0"
+                        max="100"
+                        step="any"
+                    >
+
+                    <button type="button" id="btn">
+                        Calculate Grade
+                    </button>
+
+                    <div class="result">
+                        <input
+                            type="text"
+                            id="grade-result"
+                            placeholder="Your grade will be shown here"
+                            readonly
+                        >
+                    </div>
+
+                    <button
+                        type="button"
+                        id="grade-refresh"
+                        class="refresh-btn"
+                    >
+                        Refresh
+                    </button>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Tip Calculator Placeholder -->
+        <section id="tip">
+            <div class="Tip-calculator">
+
+                <h2>Tip Calculator</h2>
+
+                <p>
+                    
+                </p>
+
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="About">
+
+                <h2>
+                    <img
+                        src="./images/about.png"
+                        width="25"
+                        height="25"
+                        alt="About icon"
+                    >
+                    About
+                </h2>
+
+                <p>
+                    Welcome to Calculators AM! Our website provides useful
+                    calculators to make everyday calculations faster and easier.
+                    You can perform basic arithmetic operations with the Simple
+                    Calculator, calculate academic grades with the Grade
+                    Calculator, and determine restaurant tips using the Tip
+                    Calculator. Our goal is to provide a simple, accurate, and
+                    user-friendly calculation experience. Thank you for visiting
+                    our website!
+                </p>
+
+            </div>
+        </section>
+
+    </main>
+    <footer class="site-footer">
+    <div class="footer-container">
+
+        <div class="footer-brand">
+            <a href="#home" class="footer-logo">
+                <img
+                    src="./images/logo.png"
+                    width="48"
+                    height="48"
+                    alt="Calculators AM Logo"
+                >
+
+                <div>
+                    <h3>Calculators AM</h3>
+                    <p>Smart and Simple Calculations</p>
+                </div>
+            </a>
+
+            <p class="footer-description">
+                Simple, accurate and user-friendly calculators for everyday use.
+            </p>
+        </div>
+
+        <div class="footer-links">
+            <h3>Quick Links</h3>
+
+            <a href="#home">Home</a>
+            <a href="#simple">Simple Calculator</a>
+            <a href="#grade">Grade Calculator</a>
+            <a href="#tip">Tip Calculator</a>
+            <a href="#about">About</a>
+        </div>
+
+        <div class="footer-contact">
+            <h3>Contact</h3>
+
+            <a href="mailto:akashislamcse6644@gmail.com">
+                <span class="footer-icon">@</span>
+                akashislamcse6644@gmail.com
+            </a>
+
+            <a href="tel:+8801785039400">
+                <span class="footer-icon">☎</span>
+                +880 1785039400
+            </a>
+        </div>
+
+        <div class="footer-social">
+            <h3>Follow Me</h3>
+
+            <div class="social-links">
+                <a
+                    href="https://github.com/akashcse02"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub"
+                    title="GitHub"
+                >
+                    GH
+                </a>
+
+                <a
+                    href="https://www.facebook.com/md.akash.islam.61460"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Facebook"
+                    title="Facebook"
+                >
+                    FB
+                </a>
+
+                <a
+                    href="https://www.linkedin.com/in/md-akash-islam-18a162319/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn"
+                    title="LinkedIn"
+                >
+                    IN
+                </a>
+
+                <a
+                    href="YOUR_INSTAGRAM_URL"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram"
+                    title="Instagram"
+                >
+                    IG
+                </a>
+            </div>
+        </div>
 
     </div>
-</header>
-<body>
-   <section class="about-section">
-    <div class="About">
-        <h2>
-            <img
-                src="./images/about.png"
-                width="25"
-                height="25"
-                alt="About icon"
-            >
-            About
-        </h2>
+
+    <div class="footer-bottom">
+        <p>
+            &copy; <span id="current-year">2026</span>
+            Calculators AM. All rights reserved.
+        </p>
 
         <p>
-            Welcome to Calculators AM! Our website provides useful calculators
-            to make everyday calculations faster and easier. You can perform
-            basic arithmetic operations with the Simple Calculator, calculate
-            academic grades with the Grade Calculator, and determine restaurant
-            tips using the Tip Calculator. Our goal is to provide a simple,
-            accurate, and user-friendly calculation experience. Thank you for
-            visiting our website!
+            Designed and Developed by
+            <a
+                href="https://github.com/akashcse02/Calculators"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Akash Islam
+            </a>
         </p>
     </div>
-</section>
-    <section>
-        <div class="Simple-calculator">
-        <h2><img src="./images/calculator.png" width="25px" height="25px" alt="Calculator">Simple Calculator</h2>
-            <div>
-             <div class="box">
-                <input type="text" id="a" placeholder="Enter first number">
+</footer>
 
-                <select id="op"> 
-                    <option value="+">+</option>
-                    <option value="-">-</option>
-                    <option value="*">*</option>
-                    <option value="/">/</option>
-                </select>
-                <input type="text" id="b" placeholder="Enter second number">
-                <button id="calculate">Calculate</button>
-            <section class="result">
-            <input
-                type="text"
-                id="result"
-                placeholder="Result will be shown here"
-                readonly>
-        </section>
-        <button type="button" id="calculate">Calculate</button>
-<button type="button" id="simple-refresh" class="refresh-btn">Refresh</button>
-       
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="Grade-calculator">
-            <h2><img src="./images/grade.png" width="25px" height="25px" alt="Grade">Grade Calculator</h2>
-            <div class="box">
-                <input type="text" id="marks" placeholder="Enter your marks">
-                <button id="btn">Calculate Grade</button>
-                <section class="result">
-                    <input
-                        type="text"
-                        id="grade-result"
-                        placeholder="Your grade will be shown here"
-                        readonly>
-                </section>
-                <button type="button" id="btn">Calculate Grade</button>
-<button type="button" id="grade-refresh" class="refresh-btn">Refresh</button>
-            </div>
-        </div>
-    </section>
-     <script src="./script.js"></script>
+    <script src="./script.js"></script>
 
 </body>
 </html>
