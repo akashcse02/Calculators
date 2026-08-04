@@ -27,8 +27,43 @@ input[type="text"] {
   box-sizing: border-box;
   background: linear-gradient(to right, #002838, #002a68);
   box-shadow: 0 0 5px #4aafb3;
-
 }
+select {
+    width: 100%;
+    height: 52px;
+    padding: 0 42px 0 16px;
+    margin-bottom: 10px;
+    color: #ffffff;
+    font-size: 15px;
+    font-family: inherit;
+    background:
+        linear-gradient(45deg, transparent 50%, #22d3ee 50%) calc(100% - 20px) 21px / 6px 6px no-repeat,
+        linear-gradient(135deg, #22d3ee 50%, transparent 50%) calc(100% - 14px) 21px / 6px 6px no-repeat,
+        linear-gradient(135deg, #002838, #002a68);
+    border: 1px solid #016961;
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+select:hover {
+    border-color: #22d3ee;
+}
+
+select:focus {
+    border-color: #22d3ee;
+    box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.15);
+    transform: translateY(-1px);
+}
+
+select option {
+    color: #ffffff;
+    background-color: #002838;
+}
+
 #calculate{
 
     width: 100%;
@@ -67,3 +102,26 @@ input[type="button"]:focus {
 input[type="button"]:focus {
   outline: none;
 }
+#calculate-grade {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    background: linear-gradient(to right, #002838, #002a68);
+    color: white;
+    cursor: pointer;
+}
+#calculate-grade:hover {
+    background: linear-gradient(to right, #7661f0, #1974fc);
+}
+.Grade-calculator h2 {
+    vertical-align: middle;
+    margin-right: 10px;
+    text-align: center;
+}
+.Grade-calculator .box{
+    border: 1px solid #070111;
+    background:url(/Images/gread.png)center center;
+    background-size: cover; 
+  }

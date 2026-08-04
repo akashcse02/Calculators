@@ -28,7 +28,13 @@
             <div>
              <div class="box">
                 <input type="text" id="a" placeholder="Enter first number">
-                <input type="text" id="operator" placeholder="Enter operator (+, -, *, /)">
+
+                <select id="op"> 
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">*</option>
+                    <option value="/">/</option>
+                </select>
                 <input type="text" id="b" placeholder="Enter second number">
                 <button id="calculate">Calculate</button>
             <section class="result">
@@ -38,9 +44,27 @@
                 placeholder="Result will be shown here"
                 readonly>
         </section>
-
+       
             </div>
         </div>
     </section>
+
+    <section>
+        <div class="Grade-calculator">
+            <h2><img src="./images/grade.png" width="25px" height="25px" alt="Grade">Grade Calculator</h2>
+            <div class="box">
+                <input type="text" id="marks" placeholder="Enter your marks">
+                <button id="calculate-grade">Calculate Grade</button>
+                <section class="result">
+                    <input
+                        type="text"
+                        id="grade-result"
+                        placeholder="Your grade will be shown here"
+                        readonly>
+                </section>
+            </div>
+        </div>
+     <script src="./script.js"></script>
+
 </body>
 </html>
