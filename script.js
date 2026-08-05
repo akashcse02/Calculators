@@ -115,3 +115,16 @@ gradeRefreshBtn.addEventListener("click", () => {
     input.focus();
 });
 
+
+//tip calculator-
+
+
+
+document.getElementById("tip-refresh").addEventListener("click",function(){
+billAmount.value="";
+tipPercentage.value="10";
+people.value="1";
+result.value="";
+currency.value="$";
+tipOption.value="10";
+});

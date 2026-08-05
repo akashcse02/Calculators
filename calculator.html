@@ -186,23 +186,111 @@
             </div>
         </section>
 
-        <!-- Tip Calculator Placeholder -->
-        <section id="tip">
-            <h2><img src="./images/tip.png" width="25" height="25" alt="Tip icon">Tip Calculator</h2>
-            <div class="Tip-calculator">
-                <div class="box">
-               <input type="number" id="bill-amount" placeholder="Enter bill amount" step="any">
-                <input type="number" id="tip-percentage" placeholder="Enter tip percentage" step="any">
-                <input type="number" id="tip-amount" placeholder="Enter tip amount" step="any">
-                <input type="number" id="total-amount" placeholder="Enter total amount" step="any">
-                <input type="number" id="tip-per-person" placeholder="Enter tip per person" step="any">
-                <input type="number" id="number-of-people" placeholder="Enter number of people" step="1" min="1">
-                <button type="button" id="tip-calculate">Calculate Tip</button>
-                <div class="result">
-                    <input type="text" id="tip-result" placeholder="Tip result will be shown here" readonly>
-                </div>
+       <!-- Tip Calculator -->
+<section id="tip">
+    <div class="Tip-calculator">
+
+        <h2>
+            <img
+                src="./images/tip.png"
+                width="25"
+                height="25"
+                alt="Tip icon"
+            >
+            Tip Calculator
+        </h2>
+
+        <div class="box">
+
+            <!-- Bill amount and currency -->
+            <div class="input-group">
+                <input
+                    type="number"
+                    id="bill-amount"
+                    placeholder="Enter bill amount"
+                    min="0"
+                    step="any"
+                >
+
+                <select id="currency" aria-label="Select currency">
+                    <option value="$">USD ($)</option>
+                    <option value="৳">BDT (৳)</option>
+                    <option value="€">EUR (€)</option>
+                    <option value="£">GBP (£)</option>
+                    <option value="₹">INR (₹)</option>
+                </select>
             </div>
-        </section>
+
+            <!-- Tip percentage -->
+            <div class="input-group">
+                <input
+                    type="number"
+                    id="tip-percentage"
+                    placeholder="Tip percentage"
+                    value="10"
+                    min="0"
+                    step="any"
+                >
+
+                <select
+                    id="tip-option"
+                    aria-label="Select tip percentage"
+                >
+                    <option value="5">5%</option>
+                    <option value="10" selected>10%</option>
+                    <option value="15">15%</option>
+                    <option value="20">20%</option>
+                    <option value="25">25%</option>
+                </select>
+            </div>
+
+            <!-- Number of people -->
+            <input
+                type="number"
+                id="number-of-people"
+                placeholder="Number of people"
+                value="1"
+                min="1"
+                step="1"
+            >
+
+            <!-- Calculate button -->
+            <button type="button" id="tip-calculate">
+                Calculate Tip
+            </button>
+
+            <!-- Result Section -->
+            <div class="tip-result">
+
+                <div class="result-item">
+                    <span>Tip Amount</span>
+                    <strong id="tip-amount-result">$0.00</strong>
+                </div>
+
+                <div class="result-item">
+                    <span>Total Amount</span>
+                    <strong id="total-bill-result">$0.00</strong>
+                </div>
+
+                <div class="result-item">
+                    <span>Amount Per Person</span>
+                    <strong id="per-person-result">$0.00</strong>
+                </div>
+
+            </div>
+
+            <!-- Refresh button -->
+            <button
+                type="button"
+                id="tip-refresh"
+                class="refresh-btn"
+            >
+                Refresh
+            </button>
+
+        </div>
+    </div>
+</section>
 
         <!-- About Section -->
         <section id="about" class="about-section">
