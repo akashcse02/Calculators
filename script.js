@@ -116,15 +116,150 @@ gradeRefreshBtn.addEventListener("click", () => {
 });
 
 
-//tip calculator-
+
+
+//Tip calculator-
+//connnect with Element ----
+
+    const billAmountInput = document.getElementById("bill-amount");
+    const currencySelect = document.getElementById("currency");
+    const tipPercentageInput = document.getElementById("tip-percentage");
+    const tipOptionSelect = document.getElementById("tip-option");
+    const numberOfPeopleInput = document.getElementById("number-of-people");
+    const tipCalculateButton = document.getElementById("tip-calculate");
+    const tipRefreshButton = document.getElementById("tip-refresh");
+    const tipAmountResult = document.getElementById("tip-amount-result");
+    const totalBillResult = document.getElementById("total-bill-result");
+    const perPersonResult = document.getElementById("per-person-result");
+
+   
+   
+   
+   //Conditions---
+
+    if (tipOptionSelect && tipPercentageInput) {
+        tipOptionSelect.addEventListener("change", function () {
+            tipPercentageInput.value = tipOptionSelect.value;
+        });
+    }
+    if (tipPercentageInput && tipOptionSelect) {
+        tipPercentageInput.addEventListener("input", function () {
+            const inputValue = tipPercentageInput.value;
+            const matchingOption = Array.from(
+                tipOptionSelect.options
+            ).some(function (option) {
+                return option.value === inputValue;
+            });
+
+            if (matchingOption) {
+                tipOptionSelect.value = inputValue;
+            }
+        });
+    }
+
+    if (
+        billAmountInput &&
+        currencySelect &&
+        tipPercentageInput &&
+        numberOfPeopleInput &&
+        tipCalculateButton &&
+        tipAmountResult &&
+        totalBillResult &&
+        perPersonResult
+    ) {
+        tipCalculateButton.addEventListener("click", calculateTip);
+    }
+
+    function calculateTip() {
+        const billAmount = parseFloat(billAmountInput.value);
+        const tipPercentage = parseFloat(tipPercentageInput.value);
+        const numberOfPeople = parseInt(
+            numberOfPeopleInput.value,
+            10
+        );
+
+        const currencySymbol = currencySelect.value;
+
+        if (Number.isNaN(billAmount) || billAmount < 0) {
+            alert("Please enter a valid bill amount.");
+            billAmountInput.focus();
+            return;
+        }
+
+        if (
+            Number.isNaN(tipPercentage) ||
+            tipPercentage < 0
+        ) {
+            alert("Please enter a valid tip percentage.");
+            tipPercentageInput.focus();
+            return;
+        }
+
+        if (
+            Number.isNaN(numberOfPeople) ||
+            numberOfPeople < 1
+        ) 
+        {
+            alert("Number of people must be at least 1.");
+            numberOfPeopleInput.focus();
+            return;
+        }
 
 
 
-document.getElementById("tip-refresh").addEventListener("click",function(){
-billAmount.value="";
-tipPercentage.value="10";
-people.value="1";
-result.value="";
-currency.value="$";
-tipOption.value="10";
-});
+
+//Link------
+        const tipAmount =
+            billAmount * (tipPercentage / 100);
+
+        const totalBill =
+            billAmount + tipAmount;
+
+        const amountPerPerson =
+            totalBill / numberOfPeople;
+
+        tipAmountResult.textContent =
+            `${currencySymbol}${tipAmount.toFixed(2)}`;
+
+        totalBillResult.textContent =
+            `${currencySymbol}${totalBill.toFixed(2)}`;
+
+        perPersonResult.textContent =
+            `${currencySymbol}${amountPerPerson.toFixed(2)}`;
+    }
+
+   
+    if (currencySelect) {
+        currencySelect.addEventListener("change", function () {
+            if (billAmountInput.value !== "") {
+                calculateTip();
+            } else {
+                resetTipResults(currencySelect.value);
+            }
+        });
+    }
+
+    if (tipRefreshButton) {
+        tipRefreshButton.addEventListener("click", function () {
+            billAmountInput.value = "";
+            currencySelect.value = "$";
+            tipPercentageInput.value = "10";
+            tipOptionSelect.value = "10";
+            numberOfPeopleInput.value = "1";
+
+            resetTipResults("$");
+
+            billAmountInput.focus();
+        });
+    }
+
+    function resetTipResults(currencySymbol) {
+        tipAmountResult.textContent =
+            `${currencySymbol}0.00`;
+
+        totalBillResult.textContent =
+            `${currencySymbol}0.00`;
+
+        perPersonResult.textContent =
+            `${currencySymbol}0.00`;
+    }
