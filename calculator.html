@@ -188,14 +188,19 @@
 
         <!-- Tip Calculator Placeholder -->
         <section id="tip">
+            <h2><img src="./images/tip.png" width="25" height="25" alt="Tip icon">Tip Calculator</h2>
             <div class="Tip-calculator">
-
-                <h2>Tip Calculator</h2>
-
-                <p>
-                    
-                </p>
-
+                <div class="box">
+               <input type="number" id="bill-amount" placeholder="Enter bill amount" step="any">
+                <input type="number" id="tip-percentage" placeholder="Enter tip percentage" step="any">
+                <input type="number" id="tip-amount" placeholder="Enter tip amount" step="any">
+                <input type="number" id="total-amount" placeholder="Enter total amount" step="any">
+                <input type="number" id="tip-per-person" placeholder="Enter tip per person" step="any">
+                <input type="number" id="number-of-people" placeholder="Enter number of people" step="1" min="1">
+                <button type="button" id="tip-calculate">Calculate Tip</button>
+                <div class="result">
+                    <input type="text" id="tip-result" placeholder="Tip result will be shown here" readonly>
+                </div>
             </div>
         </section>
 

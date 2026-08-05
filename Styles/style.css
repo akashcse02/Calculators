@@ -426,26 +426,16 @@ select option {
     text-align: justify;
 }
 
-.Tip-calculator {
-    width: 100%;
-    max-width: 650px;
-    margin: 0 auto;
-    padding: 30px;
-    text-align: center;
-    background: linear-gradient(135deg, rgba(4, 25, 71, 0.96), rgba(15, 23, 42, 0.96));
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 18px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
-}
-
-.Tip-calculator h2 {
-    margin-top: 0;
+#tip h2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 0 0 18px;
     color: #ffffff;
+    font-size: 26px;
 }
 
-.Tip-calculator p {
-    color: #cbd5e1;
-}
 
 @media (max-width: 900px) {
     .header-container {
