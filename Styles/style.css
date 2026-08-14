@@ -1,0 +1,2978 @@
+:root {
+    --page-bg: #020617;
+    --navy: #041947;
+    --navy-light: #0b2d62;
+    --blue: #2563eb;
+    --indigo: #4f46e5;
+    --cyan: #22d3ee;
+    --text: #ffffff;
+    --muted: #cbd5e1;
+    --muted-dark: #94a3b8;
+    --input-start: #002838;
+    --input-end: #002a68;
+    --input-border: #016961;
+    --radius-small: 10px;
+    --radius-large: 22px;
+    --transition: 0.25s ease;
+}
+
+/* =========================
+   Reset and base styles
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(circle at top left, rgba(79, 70, 229, 0.18), transparent 35%),
+        linear-gradient(135deg, #020617, #07142c, #020617);
+}
+
+img {
+    max-width: 100%;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button,
+select {
+    cursor: pointer;
+}
+
+section {
+    width: 100%;
+    padding: 45px 20px;
+    scroll-margin-top: 100px;
+}
+
+/* Remove number input arrows in Chrome, Safari and Edge */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    margin: 0;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+/* Remove number input arrows in Firefox */
+input[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+/* =========================
+   Header
+========================= */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    background: rgba(4, 25, 71, 0.96);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.18);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.header-container {
+    width: min(1200px, 92%);
+    min-height: 78px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 12px;
+    color: var(--text);
+    text-decoration: none;
+}
+
+.brand img {
+    width: 50px;
+    height: 50px;
+    padding: 5px;
+    object-fit: contain;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+}
+
+.brand-text h1 {
+    margin: 0;
+    color: var(--text);
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: 0.3px;
+}
+
+.brand-text span {
+    display: block;
+    margin-top: 3px;
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 0.5px;
+}
+
+.main-nav ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    list-style: none;
+}
+
+.main-nav a {
+    position: relative;
+    display: block;
+    padding: 11px 14px;
+    color: #e2e8f0;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.main-nav a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 5px;
+    width: 0;
+    height: 2px;
+    background: #60a5fa;
+    border-radius: 10px;
+    transform: translateX(-50%);
+    transition: width var(--transition);
+}
+
+.main-nav a:hover,
+.main-nav a:focus-visible {
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.1);
+    outline: none;
+    transform: translateY(-1px);
+}
+
+.main-nav a:hover::after,
+.main-nav a:focus-visible::after {
+    width: 55%;
+}
+
+.main-nav a.active {
+    color: var(--text);
+    background: linear-gradient(135deg, var(--blue), var(--indigo));
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.35);
+}
+
+.main-nav a.active::after {
+    display: none;
+}
+
+/* =========================
+   Home section
+========================= */
+
+.home-section {
+    min-height: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background:
+        linear-gradient(rgba(2, 6, 23, 0.78), rgba(4, 25, 71, 0.88)),
+        url("../images/calculator.png") center / 220px no-repeat;
+}
+
+.home-content {
+    width: min(720px, 100%);
+    padding: 45px 25px;
+    background: rgba(4, 25, 71, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-large);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.home-content h2 {
+    margin: 0 0 15px;
+    font-size: clamp(30px, 5vw, 48px);
+}
+
+.home-content p {
+    margin: 0 0 25px;
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.home-btn {
+    display: inline-block;
+    padding: 13px 25px;
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    background: linear-gradient(135deg, var(--blue), var(--indigo));
+    border-radius: var(--radius-small);
+    box-shadow: 0 10px 24px rgba(37, 99, 235, 0.35);
+    transition: var(--transition);
+}
+
+.home-btn:hover,
+.home-btn:focus-visible {
+    outline: none;
+    transform: translateY(-3px);
+    box-shadow: 0 14px 28px rgba(37, 99, 235, 0.45);
+}
+
+/* =========================
+   Calculator common layout
+========================= */
+
+.Simple-calculator,
+.Grade-calculator,
+.Tip-calculator {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.Simple-calculator h2,
+.Grade-calculator h2,
+.Tip-calculator h2 {
+    margin: 0 0 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: var(--text);
+    font-size: 25px;
+    text-align: center;
+}
+
+.Simple-calculator h2 img,
+.Grade-calculator h2 img,
+.Tip-calculator h2 img {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+.Simple-calculator .box,
+.Grade-calculator .box,
+.Tip-calculator .box {
+    width: 100%;
+    min-height: 400px;
+    margin: 0 auto;
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: var(--radius-large);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+}
+
+.Simple-calculator .box {
+    background:
+        linear-gradient(rgba(7, 1, 17, 0.86), rgba(7, 1, 17, 0.92)),
+        url("../images/Cal.png") center / cover no-repeat;
+}
+
+.Grade-calculator .box {
+    background:
+        linear-gradient(rgba(7, 1, 17, 0.88), rgba(7, 1, 17, 0.92)),
+        url("../images/gread.png") center / cover no-repeat;
+}
+
+.Tip-calculator .box {
+    min-height: 430px;
+    background:
+        linear-gradient(rgba(7, 1, 17, 0.9), rgba(7, 1, 17, 0.94)),
+        url("../images/tip.png") center / 165px no-repeat;
+}
+
+/* =========================
+   Calculator inputs
+========================= */
+
+.Simple-calculator input,
+.Grade-calculator input,
+.Tip-calculator input {
+    width: 100%;
+    min-width: 0;
+    height: 52px;
+    margin: 0;
+    padding: 0 16px;
+    color: var(--text);
+    font-size: 15px;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 40, 56, 0.96),
+        rgba(0, 42, 104, 0.96)
+    );
+    border: 1px solid var(--input-border);
+    border-radius: var(--radius-small);
+    outline: none;
+    box-shadow: 0 0 5px rgba(74, 175, 179, 0.65);
+    transition: var(--transition);
+}
+
+.Simple-calculator input::placeholder,
+.Grade-calculator input::placeholder,
+.Tip-calculator input::placeholder {
+    color: var(--muted);
+    opacity: 1;
+}
+
+.Simple-calculator input:focus,
+.Grade-calculator input:focus,
+.Tip-calculator input:focus {
+    border-color: var(--cyan);
+    box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.15);
+    transform: translateY(-1px);
+}
+
+.Simple-calculator select,
+.Grade-calculator select,
+.Tip-calculator select {
+    width: 100%;
+    min-width: 0;
+    height: 52px;
+    margin: 0;
+    padding: 0 42px 0 16px;
+    color: var(--text);
+    font-size: 15px;
+    background:
+        linear-gradient(45deg, transparent 50%, var(--cyan) 50%)
+            calc(100% - 20px) 21px / 6px 6px no-repeat,
+        linear-gradient(135deg, var(--cyan) 50%, transparent 50%)
+            calc(100% - 14px) 21px / 6px 6px no-repeat,
+        linear-gradient(135deg, var(--input-start), var(--input-end));
+    border: 1px solid var(--input-border);
+    border-radius: var(--radius-small);
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    transition: var(--transition);
+}
+
+.Simple-calculator select:hover,
+.Simple-calculator select:focus,
+.Grade-calculator select:hover,
+.Grade-calculator select:focus,
+.Tip-calculator select:hover,
+.Tip-calculator select:focus {
+    border-color: var(--cyan);
+    box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.15);
+}
+
+.Simple-calculator select option,
+.Grade-calculator select option,
+.Tip-calculator select option {
+    color: var(--text);
+    background: var(--input-start);
+}
+
+/* Tip input and select in one row */
+.Tip-calculator .input-group {
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 118px;
+    align-items: stretch;
+    gap: 10px;
+}
+
+.Tip-calculator .input-group input,
+.Tip-calculator .input-group select {
+    width: 100%;
+}
+
+/* =========================
+   Calculator buttons
+========================= */
+
+#calculate,
+#btn,
+#tip-calculate {
+    width: 100%;
+    height: 52px;
+    margin: 0;
+    padding: 10px 16px;
+    color: var(--text);
+    font-size: 16px;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--navy), var(--indigo));
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: var(--radius-small);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+#calculate:hover,
+#calculate:focus-visible,
+#btn:hover,
+#btn:focus-visible,
+#tip-calculate:hover,
+#tip-calculate:focus-visible {
+    background: linear-gradient(135deg, #7661f0, #1974fc);
+    outline: none;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35);
+}
+
+#calculate:active,
+#btn:active,
+#tip-calculate:active {
+    transform: translateY(0);
+}
+
+.refresh-btn {
+    width: 100%;
+    height: 48px;
+    margin: 0;
+    padding: 10px 16px;
+    color: var(--text);
+    font-size: 16px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #475569, #0f172a);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-small);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.refresh-btn:hover,
+.refresh-btn:focus-visible {
+    background: linear-gradient(135deg, #64748b, #1e293b);
+    outline: none;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(15, 23, 42, 0.35);
+}
+
+.refresh-btn:active {
+    transform: translateY(0);
+}
+
+/* =========================
+   Result areas
+========================= */
+
+.result {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#result,
+#grade-result {
+    text-align: center;
+    font-weight: 700;
+    cursor: default;
+}
+
+#result:read-only,
+#grade-result:read-only {
+    opacity: 1;
+}
+
+#grade-result.pass {
+    color: #e8ecec;
+    border-color: #00a6c7;
+    background: rgba(0, 166, 199, 0.18);
+    box-shadow: 0 0 10px rgba(0, 166, 199, 0.22);
+}
+
+#grade-result.fail {
+    color: #ff8a8a;
+    border-color: #ef4444;
+    background: rgba(239, 68, 68, 0.16);
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.2);
+}
+
+/* Optional Tip Calculator result box */
+.Tip-calculator .tip-result,
+.Tip-calculator .tip-results {
+    width: 100%;
+    padding: 14px 16px;
+    display: grid;
+    gap: 9px;
+    color: var(--muted);
+    font-size: 14px;
+    background: rgba(2, 6, 23, 0.72);
+    border: 1px solid rgba(34, 211, 238, 0.28);
+    border-radius: var(--radius-small);
+}
+
+.Tip-calculator .tip-result > div,
+.Tip-calculator .tip-results > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.Tip-calculator .tip-result strong,
+.Tip-calculator .tip-results strong {
+    color: var(--text);
+}
+
+/* =========================
+   About section
+========================= */
+
+.about-section {
+    width: 100%;
+    padding: 45px 20px;
+}
+
+.About {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px;
+    background: linear-gradient(
+        135deg,
+        rgba(4, 25, 71, 0.96),
+        rgba(15, 23, 42, 0.96)
+    );
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 18px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+}
+
+.About h2 {
+    margin: 0 0 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: var(--text);
+    font-size: 26px;
+}
+
+.About h2 img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+.About p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+/* =========================
+   Footer
+========================= */
+
+.site-footer {
+    width: 100%;
+    color: var(--muted);
+    background:
+        radial-gradient(circle at top left, rgba(79, 70, 229, 0.18), transparent 35%),
+        linear-gradient(135deg, #020617, var(--navy));
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 -10px 35px rgba(0, 0, 0, 0.2);
+}
+
+.footer-container {
+    width: min(1200px, 92%);
+    margin: 0 auto;
+    padding: 55px 0 40px;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.4fr 1fr;
+    gap: 40px;
+}
+
+.footer-container h3 {
+    margin: 0 0 18px;
+    color: var(--text);
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text);
+    text-decoration: none;
+}
+
+.footer-logo img {
+    width: 48px;
+    height: 48px;
+    padding: 5px;
+    object-fit: contain;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.25);
+}
+
+.footer-logo h3 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.footer-logo p {
+    margin: 4px 0 0;
+    color: var(--muted-dark);
+    font-size: 11px;
+}
+
+.footer-description {
+    max-width: 320px;
+    margin: 18px 0 0;
+    color: var(--muted-dark);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.footer-links,
+.footer-contact,
+.footer-social {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-links a,
+.footer-contact a {
+    margin-bottom: 11px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: var(--muted);
+    font-size: 14px;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+    transition: var(--transition);
+}
+
+.footer-links a:hover,
+.footer-links a:focus-visible,
+.footer-contact a:hover,
+.footer-contact a:focus-visible {
+    color: #60a5fa;
+    outline: none;
+    transform: translateX(4px);
+}
+
+.footer-icon {
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 700;
+    background: rgba(37, 99, 235, 0.2);
+    border: 1px solid rgba(96, 165, 250, 0.3);
+    border-radius: 8px;
+}
+
+.social-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.social-links a {
+    width: 43px;
+    height: 43px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 800;
+    text-decoration: none;
+    background: linear-gradient(135deg, var(--navy), var(--indigo));
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 12px;
+    box-shadow: 0 7px 18px rgba(37, 99, 235, 0.2);
+    transition: var(--transition);
+}
+
+.social-links a:hover,
+.social-links a:focus-visible {
+    background: linear-gradient(135deg, #7661f0, #1974fc);
+    outline: none;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(37, 99, 235, 0.38);
+}
+
+.footer-bottom {
+    width: min(1200px, 92%);
+    margin: 0 auto;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: var(--muted-dark);
+    font-size: 13px;
+}
+
+.footer-bottom a {
+    color: #60a5fa;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.footer-bottom a:hover,
+.footer-bottom a:focus-visible {
+    color: #93c5fd;
+    outline: none;
+    text-decoration: underline;
+}
+
+/* =========================
+   Responsive design
+========================= */
+
+@media (max-width: 950px) {
+    .footer-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 900px) {
+    .header-container {
+        padding: 14px 0;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .main-nav {
+        width: 100%;
+    }
+
+    .main-nav ul {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    section {
+        scroll-margin-top: 165px;
+    }
+}
+
+@media (max-width: 600px) {
+    section {
+        padding: 32px 14px;
+    }
+
+    .site-header {
+        position: relative;
+    }
+
+    .header-container {
+        width: 94%;
+    }
+
+    .brand-text h1 {
+        font-size: 19px;
+    }
+
+    .brand-text span {
+        font-size: 10px;
+    }
+
+    .main-nav ul {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    .main-nav li:first-child {
+        grid-column: 1 / -1;
+    }
+
+    .main-nav a {
+        padding: 10px;
+        font-size: 13px;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.07);
+    }
+
+    .home-section {
+        min-height: 420px;
+    }
+
+    .home-content {
+        padding: 35px 18px;
+    }
+
+    .Simple-calculator h2,
+    .Grade-calculator h2,
+    .Tip-calculator h2 {
+        font-size: 21px;
+    }
+
+    .Simple-calculator .box,
+    .Grade-calculator .box,
+    .Tip-calculator .box {
+        min-height: 380px;
+        padding: 22px 18px;
+    }
+
+    .Tip-calculator .box {
+        min-height: 420px;
+    }
+
+    .About {
+        padding: 22px 18px;
+    }
+
+    .About p {
+        font-size: 15px;
+        text-align: left;
+    }
+
+    .footer-container {
+        padding: 42px 0 30px;
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .footer-brand,
+    .footer-links,
+    .footer-contact,
+    .footer-social {
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-description {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .footer-links a:hover,
+    .footer-contact a:hover {
+        transform: translateY(-2px);
+    }
+
+    .footer-bottom {
+        padding: 18px 0;
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 430px) {
+    .Tip-calculator .input-group {
+        grid-template-columns: 1fr;
+    }
+
+    .Simple-calculator .box,
+    .Grade-calculator .box,
+    .Tip-calculator .box {
+        padding: 20px 15px;
+    }
+}
+
+/* =========================================
+   Scientific Calculator - Casio fx-991EX
+   Clean & Standard UI
+   ========================================= */
+.Scientific-calculator h2{
+      display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.casio-wrapper {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 15px;
+    background: transparent;
+    box-shadow: none;
+}
+
+/* Calculator Body */
+.casio-body {
+    width: 390px;
+    max-width: 100%;
+    padding: 22px 20px 25px;
+    margin: 0 auto;
+
+    background: linear-gradient(
+        145deg,
+        #181818 0%,
+        #242424 45%,
+        #151515 100%
+    );
+
+    border: 1px solid #3a3a3a;
+    border-radius: 22px;
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.55),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+    position: relative;
+}
+
+/* =========================================
+   Header
+   ========================================= */
+
+.casio-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+    padding: 0 3px;
+    color: #fff;
+}
+
+.casio-header .brand {
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    line-height: 1;
+}
+
+.casio-header .model {
+    font-size: 12px;
+    font-weight: 500;
+    color: #d8d8d8;
+    font-style: italic;
+    white-space: nowrap;
+}
+
+.casio-header .model span {
+    display: inline-block;
+    font-size: 9px;
+    background: #f5c400;
+    color: #111;
+    padding: 3px 6px;
+    border-radius: 3px;
+    font-style: normal;
+    margin-left: 4px;
+    font-weight: 800;
+    letter-spacing: .3px;
+}
+
+/* =========================================
+   Display
+   ========================================= */
+
+.screen-container {
+    width: 100%;
+    height: 92px;
+    padding: 8px 12px 7px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #a8b7b0 0%,
+            #91a29b 100%
+        );
+
+    border: 2px solid #59665f;
+    border-radius: 9px;
+
+    box-shadow:
+        inset 0 3px 8px rgba(0, 0, 0, 0.35),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.2);
+
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+/* Status Bar */
+.status-bar {
+    width: 100%;
+    height: 15px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 3px;
+
+    font-family: "Courier New", monospace;
+    font-size: 10px;
+    font-weight: 700;
+    color: #161616;
+}
+
+.math-ind {
+    font-weight: 900;
+}
+
+/* Main Display */
+#ex-display {
+    width: 100%;
+    height: 48px;
+
+    display: block;
+
+    background: transparent;
+    border: none;
+    outline: none;
+
+    color: #111;
+
+    font-family: "Courier New", monospace;
+    font-size: 27px;
+    font-weight: 700;
+
+    text-align: right;
+    letter-spacing: 1px;
+
+    padding: 0;
+    margin: 0;
+
+    overflow: hidden;
+}
+
+/* =========================================
+   Keypad
+   ========================================= */
+
+.keypad {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+    column-gap: 9px;
+    row-gap: 17px;
+
+    align-items: center;
+}
+
+/* =========================================
+   All Buttons
+   ========================================= */
+
+.keypad button {
+    width: 100%;
+    height: 45px;
+
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+    border-radius: 6px;
+
+    padding: 0;
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.08s ease,
+        box-shadow 0.08s ease,
+        filter 0.15s ease;
+
+    box-shadow:
+        0 4px 0 rgba(0, 0, 0, 0.45),
+        0 5px 8px rgba(0, 0, 0, 0.18);
+
+    user-select: none;
+}
+
+/* Hover */
+.keypad button:hover {
+    filter: brightness(1.12);
+}
+
+/* Click */
+.keypad button:active {
+    transform: translateY(4px);
+
+    box-shadow:
+        0 0 0 rgba(0, 0, 0, 0.4);
+}
+
+/* =========================================
+   SHIFT / ALPHA Labels
+   ========================================= */
+
+.dual span {
+    position: absolute;
+
+    top: -15px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    font-family: Arial, sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+
+    color: #d4a32b;
+
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.dual span.red {
+    color: #d84252;
+}
+
+/* =========================================
+   Number Buttons
+   ========================================= */
+
+.btn-num {
+    background: linear-gradient(
+        145deg,
+        #eeeeee,
+        #d7d7d7
+    );
+
+    color: #111;
+
+    border: 1px solid #c7c7c7 !important;
+}
+
+/* =========================================
+   Function Buttons
+   ========================================= */
+
+.btn-func {
+    background: linear-gradient(
+        145deg,
+        #292929,
+        #181818
+    );
+
+    color: #fff;
+
+    border: 1px solid #3d3d3d !important;
+}
+
+/* Operators */
+.btn-op {
+    background: linear-gradient(
+        145deg,
+        #303030,
+        #1b1b1b
+    );
+
+    color: #fff;
+
+    border: 1px solid #414141 !important;
+}
+
+/* =========================================
+   DEL / AC
+   ========================================= */
+
+.btn-del,
+.btn-ac {
+    background: linear-gradient(
+        145deg,
+        #0868c9,
+        #004b99
+    );
+
+    color: #fff;
+
+    border: 1px solid #0758a7 !important;
+}
+
+/* =========================================
+   SHIFT
+   ========================================= */
+
+.btn-shift {
+    background: linear-gradient(
+        145deg,
+        #292929,
+        #181818
+    );
+
+    color: #e0b52f;
+
+    border: 1px solid #3d3d3d !important;
+}
+
+/* =========================================
+   ALPHA
+   ========================================= */
+
+.btn-alpha {
+    background: linear-gradient(
+        145deg,
+        #292929,
+        #181818
+    );
+
+    color: #df4353;
+
+    border: 1px solid #3d3d3d !important;
+}
+
+/* =========================================
+   MODE
+   ========================================= */
+
+.btn-mode {
+    background: linear-gradient(
+        145deg,
+        #292929,
+        #181818
+    );
+
+    color: #fff;
+
+    border: 1px solid #3d3d3d !important;
+}
+
+/* =========================================
+   ANS
+   ========================================= */
+
+.btn-ans {
+    background: linear-gradient(
+        145deg,
+        #eeeeee,
+        #d7d7d7
+    );
+
+    color: #111;
+
+    border: 1px solid #c7c7c7 !important;
+}
+
+/* =========================================
+   Equals
+   ========================================= */
+
+.btn-eq {
+    background: linear-gradient(
+        145deg,
+        #303030,
+        #171717
+    );
+
+    color: #fff;
+
+    border: 1px solid #414141 !important;
+}
+
+/* =========================================
+   Button Focus
+   ========================================= */
+
+.keypad button:focus-visible {
+    outline: 2px solid #f5c400;
+    outline-offset: 2px;
+}
+
+/* =========================================
+   Small Screen
+   ========================================= */
+
+@media (max-width: 430px) {
+
+    .casio-wrapper {
+        padding: 20px 10px;
+    }
+
+    .casio-body {
+        width: 100%;
+        padding: 20px 15px 22px;
+        border-radius: 18px;
+    }
+
+    .casio-header .brand {
+        font-size: 18px;
+    }
+
+    .casio-header .model {
+        font-size: 10px;
+    }
+
+    .screen-container {
+        height: 86px;
+        margin-bottom: 27px;
+    }
+
+    #ex-display {
+        font-size: 23px;
+    }
+
+    .keypad {
+        column-gap: 7px;
+        row-gap: 15px;
+    }
+
+    .keypad button {
+        height: 42px;
+        font-size: 12px;
+    }
+
+    .dual span {
+        font-size: 8px;
+        top: -14px;
+    }
+}
+
+/* =========================================
+   Very Small Screen
+   ========================================= */
+
+@media (max-width: 340px) {
+
+    .casio-body {
+        padding: 17px 10px 20px;
+    }
+
+    .keypad {
+        column-gap: 5px;
+        row-gap: 14px;
+    }
+
+    .keypad button {
+        height: 38px;
+        font-size: 10px;
+    }
+
+    #ex-display {
+        font-size: 20px;
+    }
+}
+
+
+/* =========================================
+   BMI CALCULATOR
+   Premium Dark UI
+   ========================================= */
+
+#bmi {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 15px;
+}
+
+/* Main Card */
+.BMI-calculator {
+    width: 390px;
+    max-width: 100%;
+    padding: 24px 22px 25px;
+
+    background: linear-gradient(
+        145deg,
+        #181818 0%,
+        #242424 45%,
+        #151515 100%
+    );
+
+    border: 1px solid #3a3a3a;
+    border-radius: 20px;
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.55),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* Card Hover */
+.BMI-calculator:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 25px 55px rgba(0, 0, 0, 0.65),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+
+/* =========================================
+   Heading
+   ========================================= */
+
+.BMI-calculator h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    margin: 0 0 22px;
+
+    color: #ffffff;
+
+    font-family: Arial, sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+}
+
+/* BMI Icon */
+.BMI-calculator h2 img {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+
+    filter:
+        drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+
+/* =========================================
+   Inner Box
+   ========================================= */
+
+.BMI-calculator .box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+
+/* =========================================
+   Input Fields
+   ========================================= */
+
+.BMI-calculator input[type="number"],
+.BMI-calculator input[type="text"] {
+    width: 100%;
+    height: 48px;
+
+    padding: 0 14px;
+
+    border: 1px solid #414141;
+    border-radius: 8px;
+
+    background: #101010;
+
+    color: #ffffff;
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+
+/* Placeholder */
+.BMI-calculator input::placeholder {
+    color: #888;
+}
+
+
+/* Input Focus */
+.BMI-calculator input[type="number"]:focus {
+    border-color: #0878df;
+
+    background: #151515;
+
+    box-shadow:
+        0 0 0 3px rgba(8, 120, 223, 0.12);
+}
+
+
+/* Remove Number Arrows */
+.BMI-calculator input[type="number"]::-webkit-inner-spin-button,
+.BMI-calculator input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.BMI-calculator input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+
+/* =========================================
+   Calculate Button
+   ========================================= */
+
+#bmi-btn {
+    width: 100%;
+    height: 48px;
+
+    margin-top: 3px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: linear-gradient(
+        145deg,
+        #0878df,
+        #0054a6
+    );
+
+    color: #ffffff;
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 0 #003d7a,
+        0 7px 12px rgba(0, 0, 0, 0.25);
+
+    transition:
+        transform 0.1s ease,
+        filter 0.2s ease,
+        box-shadow 0.1s ease;
+}
+
+
+/* Calculate Hover */
+#bmi-btn:hover {
+    filter: brightness(1.12);
+}
+
+
+/* Calculate Click */
+#bmi-btn:active {
+    transform: translateY(4px);
+
+    box-shadow:
+        0 0 0 #003d7a;
+}
+
+
+/* =========================================
+   Result Area
+   ========================================= */
+
+.BMI-calculator .result {
+    width: 100%;
+}
+
+
+/* Result Inputs */
+#bmi-result,
+#bmi-category {
+    background: #202020 !important;
+
+    color: #eeeeee !important;
+
+    border: 1px solid #3b3b3b !important;
+
+    font-weight: 600;
+
+    cursor: default;
+}
+
+
+/* Result focus */
+#bmi-result:focus,
+#bmi-category:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+
+/* =========================================
+   Refresh Button
+   ========================================= */
+
+#bmi-refresh {
+    width: 100%;
+    height: 44px;
+
+    margin-top: 2px;
+
+    border: 1px solid #444;
+    border-radius: 8px;
+
+    background: linear-gradient(
+        145deg,
+        #292929,
+        #181818
+    );
+
+    color: #dddddd;
+
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 3px 0 #0c0c0c;
+
+    transition:
+        background 0.2s ease,
+        transform 0.1s ease,
+        color 0.2s ease;
+}
+
+
+/* Refresh Hover */
+#bmi-refresh:hover {
+    background: linear-gradient(
+        145deg,
+        #353535,
+        #202020
+    );
+
+    color: #ffffff;
+}
+
+
+/* Refresh Click */
+#bmi-refresh:active {
+    transform: translateY(3px);
+
+    box-shadow:
+        0 0 0 #0c0c0c;
+}
+
+
+/* =========================================
+   Mobile Responsive
+   ========================================= */
+
+@media (max-width: 430px) {
+
+    #bmi {
+        padding: 20px 10px;
+    }
+
+    .BMI-calculator {
+        width: 100%;
+        padding: 20px 16px 22px;
+        border-radius: 17px;
+    }
+
+    .BMI-calculator h2 {
+        font-size: 19px;
+        margin-bottom: 19px;
+    }
+
+    .BMI-calculator h2 img {
+        width: 23px;
+        height: 23px;
+    }
+
+    .BMI-calculator input[type="number"],
+    .BMI-calculator input[type="text"] {
+        height: 45px;
+        font-size: 13px;
+    }
+
+    #bmi-btn {
+        height: 46px;
+        font-size: 13px;
+    }
+
+    #bmi-refresh {
+        height: 42px;
+    }
+}
+
+
+/* =========================================
+   Small Mobile
+   ========================================= */
+
+@media (max-width: 340px) {
+
+    .BMI-calculator {
+        padding: 18px 13px 20px;
+    }
+
+    .BMI-calculator h2 {
+        font-size: 17px;
+    }
+
+    .BMI-calculator input[type="number"],
+    .BMI-calculator input[type="text"] {
+        height: 42px;
+        font-size: 12px;
+    }
+
+    #bmi-btn {
+        height: 43px;
+        font-size: 12px;
+    }
+}
+
+
+
+/* =========================================
+   Weather Calculator
+   Premium Dark UI
+   ========================================= */
+
+.weather-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+
+/* =========================================
+   Search Box
+   ========================================= */
+
+.search-box {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-box input {
+    flex: 1;
+    width: auto;
+    margin: 0;
+
+    height: 48px;
+    padding: 0 15px;
+
+    background: #101010;
+    color: #fff;
+
+    border: 1px solid #414141;
+    border-radius: 8px;
+
+    outline: none;
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.search-box input::placeholder {
+    color: #858585;
+}
+
+.search-box input:focus {
+    background: #151515;
+    border-color: #0878df;
+
+    box-shadow:
+        0 0 0 3px rgba(8, 120, 223, 0.12);
+}
+
+
+/* Search Button */
+
+.search-box button {
+    width: 105px;
+    height: 48px;
+
+    padding: 0;
+    margin: 0;
+
+    border: none;
+    border-radius: 8px;
+
+    background: linear-gradient(
+        145deg,
+        #0878df,
+        #0054a6
+    );
+
+    color: #fff;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 0 #003d7a,
+        0 7px 12px rgba(0, 0, 0, 0.25);
+
+    transition:
+        transform 0.1s ease,
+        filter 0.2s ease,
+        box-shadow 0.1s ease;
+}
+
+.search-box button:hover {
+    filter: brightness(1.12);
+}
+
+.search-box button:active {
+    transform: translateY(4px);
+
+    box-shadow:
+        0 0 0 #003d7a;
+}
+
+
+/* =========================================
+   Weather Result
+   ========================================= */
+
+.weather-result {
+    width: 100%;
+    padding: 22px;
+
+    position: relative;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            #182b3b,
+            #10202d 50%,
+            #0d1822
+        );
+
+    border: 1px solid #29465c;
+    border-radius: 14px;
+
+    color: #fff;
+
+    text-align: center;
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.weather-result:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 18px 38px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+
+/* Decorative Glow */
+
+.weather-result::before {
+    content: "";
+
+    position: absolute;
+    width: 140px;
+    height: 140px;
+
+    top: -70px;
+    right: -50px;
+
+    background: rgba(8, 120, 223, 0.18);
+
+    border-radius: 50%;
+
+    filter: blur(5px);
+
+    pointer-events: none;
+}
+
+
+/* Hidden */
+
+.weather-result.hidden,
+.weather-error.hidden {
+    display: none;
+}
+
+
+/* =========================================
+   City
+   ========================================= */
+
+.weather-result h3 {
+    position: relative;
+
+    margin: 0;
+
+    color: #fff;
+
+    font-family: Arial, sans-serif;
+    font-size: 23px;
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+}
+
+
+/* Date */
+
+#weather-date {
+    position: relative;
+
+    margin-top: 6px;
+
+    color: #aebdca;
+
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+
+    opacity: 0.9;
+}
+
+
+/* =========================================
+   Main Weather
+   ========================================= */
+
+.weather-main {
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 15px;
+
+    margin: 17px 0 10px;
+}
+
+.weather-main h1 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-family: Arial, sans-serif;
+    font-size: 48px;
+    font-weight: 800;
+
+    line-height: 1;
+}
+
+.weather-main img {
+    width: 72px;
+    height: 72px;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(0 5px 8px rgba(0, 0, 0, 0.35));
+
+    transition:
+        transform 0.3s ease;
+}
+
+.weather-result:hover .weather-main img {
+    transform: scale(1.08) rotate(3deg);
+}
+
+
+/* =========================================
+   Weather Description
+   ========================================= */
+
+.desc {
+    position: relative;
+
+    margin: 8px 0 20px;
+
+    color: #dce8f0;
+
+    text-transform: capitalize;
+
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+/* =========================================
+   Weather Details
+   ========================================= */
+
+.weather-details {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 10px;
+}
+
+
+/* Detail Card */
+
+.detail-card {
+    min-height: 70px;
+
+    padding: 12px 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+
+    background: rgba(255, 255, 255, 0.07);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    border-radius: 9px;
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+/* Detail Hover */
+
+.detail-card:hover {
+    background: rgba(255, 255, 255, 0.11);
+
+    border-color: rgba(255, 255, 255, 0.2);
+
+    transform: translateY(-2px);
+}
+
+
+/* Detail Label */
+
+.detail-card span {
+    color: #9fb2c1;
+
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+
+    font-weight: 500;
+
+    opacity: 1;
+}
+
+
+/* Detail Value */
+
+.detail-card strong {
+    margin-top: 5px;
+
+    color: #ffffff;
+
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+
+/* =========================================
+   Error Message
+   ========================================= */
+
+.weather-error {
+    width: 100%;
+
+    padding: 14px 15px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #321b1f,
+            #241316
+        );
+
+    color: #ff8f9a;
+
+    border: 1px solid #633038;
+
+    border-radius: 9px;
+
+    text-align: center;
+
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.3);
+
+    animation: weatherError 0.3s ease;
+}
+
+
+/* Error Animation */
+
+@keyframes weatherError {
+
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================
+   Tablet
+   ========================================= */
+
+@media (max-width: 500px) {
+
+    .weather-result {
+        padding: 20px 16px;
+    }
+
+    .weather-result h3 {
+        font-size: 21px;
+    }
+
+    .weather-main h1 {
+        font-size: 43px;
+    }
+
+    .weather-main img {
+        width: 65px;
+        height: 65px;
+    }
+}
+
+
+/* =========================================
+   Mobile
+   ========================================= */
+
+@media (max-width: 430px) {
+
+    .search-box {
+        gap: 8px;
+    }
+
+    .search-box input {
+        height: 45px;
+        font-size: 13px;
+    }
+
+    .search-box button {
+        width: 90px;
+        height: 45px;
+        font-size: 12px;
+    }
+
+    .weather-result {
+        padding: 19px 14px;
+        border-radius: 12px;
+    }
+
+    .weather-main {
+        gap: 10px;
+        margin: 15px 0 9px;
+    }
+
+    .weather-main h1 {
+        font-size: 40px;
+    }
+
+    .weather-main img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .desc {
+        font-size: 15px;
+        margin-bottom: 17px;
+    }
+
+    .weather-details {
+        gap: 8px;
+    }
+
+    .detail-card {
+        min-height: 65px;
+        padding: 10px 6px;
+    }
+
+    .detail-card span {
+        font-size: 10px;
+    }
+
+    .detail-card strong {
+        font-size: 14px;
+    }
+}
+
+
+/* =========================================
+   Small Mobile
+   ========================================= */
+
+@media (max-width: 340px) {
+
+    .search-box button {
+        width: 78px;
+    }
+
+    .weather-result h3 {
+        font-size: 19px;
+    }
+
+    .weather-main h1 {
+        font-size: 36px;
+    }
+
+    .weather-main img {
+        width: 54px;
+        height: 54px;
+    }
+
+    .detail-card strong {
+        font-size: 13px;
+    }
+}
+
+
+/* =========================================
+   WEATHER CALCULATOR
+   Dark • Animated • Professional
+   ========================================= */
+
+#weather {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 32px 15px;
+}
+
+/* =========================================
+   Main Card
+   ========================================= */
+
+.Weather-calculator {
+    width: 420px;
+    max-width: 100%;
+    padding: 24px;
+
+    background:
+        linear-gradient(145deg, #1d1f23, #121416);
+
+    border: 1px solid #30343a;
+    border-radius: 16px;
+
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+    color: #fff;
+
+    animation: weatherCardIn 0.5s ease both;
+}
+
+@keyframes weatherCardIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* =========================================
+   Heading
+   ========================================= */
+
+.Weather-calculator h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    margin: 0 0 22px;
+
+    color: #f5f7fa;
+
+    font-family: Arial, sans-serif;
+    font-size: 21px;
+    font-weight: 700;
+
+    letter-spacing: 0.3px;
+}
+
+.Weather-calculator h2 img {
+    width: 25px;
+    height: 25px;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+
+    transition: transform 0.3s ease;
+}
+
+.Weather-calculator:hover h2 img {
+    transform: translateY(-2px) rotate(4deg);
+}
+
+
+/* =========================================
+   Weather Wrapper
+   ========================================= */
+
+.weather-wrapper {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+
+/* =========================================
+   Search Box
+   ========================================= */
+
+.search-box {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+}
+
+.search-box input {
+    flex: 1;
+
+    width: auto;
+    height: 46px;
+
+    margin: 0;
+    padding: 0 14px;
+
+    background: #0f1113;
+    color: #f5f5f5;
+
+    border: 1px solid #363a40;
+    border-radius: 8px;
+
+    outline: none;
+
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.search-box input::placeholder {
+    color: #777d85;
+}
+
+.search-box input:focus {
+    background: #121518;
+
+    border-color: #3d8bfd;
+
+    box-shadow:
+        0 0 0 3px rgba(61, 139, 253, 0.10);
+}
+
+
+/* =========================================
+   Search Button
+   ========================================= */
+
+.search-box button {
+    flex: 0 0 92px;
+
+    width: 92px;
+    height: 46px;
+
+    margin: 0;
+    padding: 0;
+
+    border: 1px solid #1468c7;
+    border-radius: 8px;
+
+    background: linear-gradient(
+        145deg,
+        #1677df,
+        #0758ad
+    );
+
+    color: #fff;
+
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 3px 0 #06427f,
+        0 6px 12px rgba(0, 0, 0, 0.25);
+
+    transition:
+        transform 0.12s ease,
+        filter 0.2s ease,
+        box-shadow 0.12s ease;
+}
+
+.search-box button:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+}
+
+.search-box button:active {
+    transform: translateY(3px);
+
+    box-shadow:
+        0 0 0 #06427f;
+}
+
+
+/* =========================================
+   Suggestions
+   ========================================= */
+
+.relative-box {
+    position: relative;
+}
+
+.suggestions-dropdown {
+    position: absolute;
+
+    top: calc(100% + 6px);
+    left: 0;
+
+    width: calc(100% - 101px);
+
+    max-height: 210px;
+
+    margin: 0;
+    padding: 5px 0;
+
+    list-style: none;
+
+    background: #1b1e22;
+
+    color: #ddd;
+
+    border: 1px solid #363a40;
+    border-radius: 8px;
+
+    box-shadow:
+        0 12px 28px rgba(0, 0, 0, 0.5);
+
+    overflow-y: auto;
+
+    z-index: 1000;
+
+    animation: dropdownIn 0.18s ease;
+}
+
+.suggestions-dropdown.hidden {
+    display: none;
+}
+
+@keyframes dropdownIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.suggestions-dropdown li {
+    padding: 10px 13px;
+
+    background: transparent;
+
+    color: #cfd3d8;
+
+    border-bottom: 1px solid #2c3035;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.18s ease,
+        color 0.18s ease,
+        padding-left 0.18s ease;
+}
+
+.suggestions-dropdown li:last-child {
+    border-bottom: none;
+}
+
+.suggestions-dropdown li:hover {
+    padding-left: 17px;
+
+    background: #252a30;
+
+    color: #58a6ff;
+}
+
+
+/* =========================================
+   Error
+   ========================================= */
+
+.weather-error {
+    width: 100%;
+
+    padding: 12px 14px;
+
+    background: #28191c;
+
+    color: #ff8994;
+
+    border: 1px solid #543036;
+    border-radius: 8px;
+
+    text-align: center;
+
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+
+    animation: errorIn 0.25s ease;
+}
+
+.weather-error.hidden {
+    display: none;
+}
+
+@keyframes errorIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================
+   Weather Result
+   ========================================= */
+
+.weather-result {
+    width: 100%;
+
+    position: relative;
+    overflow: hidden;
+
+    padding: 22px 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #202831,
+            #151a1f
+        );
+
+    color: #fff;
+
+    border: 1px solid #34404c;
+    border-radius: 12px;
+
+    text-align: center;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        0 8px 22px rgba(0, 0, 0, 0.25);
+
+    animation: resultIn 0.4s ease both;
+}
+
+.weather-result.hidden {
+    display: none;
+}
+
+@keyframes resultIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Subtle Background Decoration */
+
+.weather-result::before {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    top: -100px;
+    right: -80px;
+
+    background: rgba(61, 139, 253, 0.08);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   City
+   ========================================= */
+
+.weather-result h3 {
+    position: relative;
+
+    margin: 0;
+
+    color: #f5f7fa;
+
+    font-size: 21px;
+    font-weight: 700;
+}
+
+#weather-date {
+    position: relative;
+
+    margin: 5px 0 0;
+
+    color: #89939e;
+
+    font-size: 11px;
+}
+
+
+/* =========================================
+   Main Temperature
+   ========================================= */
+
+.weather-main {
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 12px;
+
+    margin: 18px 0 8px;
+}
+
+.weather-main img {
+    width: 68px;
+    height: 68px;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(0 5px 7px rgba(0, 0, 0, 0.35));
+
+    animation: weatherIconFloat 3s ease-in-out infinite;
+}
+
+@keyframes weatherIconFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+.weather-main h1 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 45px;
+    font-weight: 800;
+
+    line-height: 1;
+}
+
+
+/* =========================================
+   Description
+   ========================================= */
+
+.desc {
+    position: relative;
+
+    margin: 6px 0 20px;
+
+    color: #b8c1ca;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    text-transform: capitalize;
+}
+
+
+/* =========================================
+   Weather Details
+   ========================================= */
+
+.weather-details {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 10px;
+}
+
+
+/* Detail Card */
+
+.detail-card {
+    min-height: 68px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+
+    padding: 10px;
+
+    background: rgba(255, 255, 255, 0.045);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 8px;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.detail-card:hover {
+    background: rgba(255, 255, 255, 0.075);
+
+    border-color: rgba(61, 139, 253, 0.3);
+
+    transform: translateY(-2px);
+}
+
+.detail-card span {
+    color: #89939e;
+
+    font-size: 11px;
+}
+
+.detail-card strong {
+    margin-top: 5px;
+
+    color: #f2f4f6;
+
+    font-size: 15px;
+    font-weight: 700;
+}
+
+
+/* =========================================
+   Scrollbar
+   ========================================= */
+
+.suggestions-dropdown::-webkit-scrollbar {
+    width: 5px;
+}
+
+.suggestions-dropdown::-webkit-scrollbar-track {
+    background: #151719;
+}
+
+.suggestions-dropdown::-webkit-scrollbar-thumb {
+    background: #41464d;
+    border-radius: 5px;
+}
+
+.suggestions-dropdown::-webkit-scrollbar-thumb:hover {
+    background: #58616b;
+}
+
+
+/* =========================================
+   Responsive
+   ========================================= */
+
+@media (max-width: 430px) {
+
+    #weather {
+        padding: 20px 10px;
+    }
+
+    .Weather-calculator {
+        width: 100%;
+        padding: 20px 15px;
+        border-radius: 13px;
+    }
+
+    .Weather-calculator h2 {
+        font-size: 19px;
+        margin-bottom: 19px;
+    }
+
+    .search-box {
+        gap: 7px;
+    }
+
+    .search-box input {
+        height: 44px;
+        font-size: 12px;
+    }
+
+    .search-box button {
+        flex-basis: 82px;
+        width: 82px;
+        height: 44px;
+        font-size: 12px;
+    }
+
+    .suggestions-dropdown {
+        width: calc(100% - 89px);
+    }
+
+    .weather-result {
+        padding: 19px 13px;
+    }
+
+    .weather-main {
+        gap: 8px;
+    }
+
+    .weather-main img {
+        width: 58px;
+        height: 58px;
+    }
+
+    .weather-main h1 {
+        font-size: 38px;
+    }
+
+    .weather-details {
+        gap: 8px;
+    }
+}
+
+
+@media (max-width: 340px) {
+
+    .Weather-calculator {
+        padding: 18px 12px;
+    }
+
+    .Weather-calculator h2 {
+        font-size: 17px;
+    }
+
+    .search-box button {
+        flex-basis: 74px;
+        width: 74px;
+    }
+
+    .weather-main h1 {
+        font-size: 34px;
+    }
+
+    .weather-main img {
+        width: 52px;
+        height: 52px;
+    }
+
+    .detail-card strong {
+        font-size: 13px;
+    }
+}

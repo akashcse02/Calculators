@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Calculators AM — Professional Calculator Suite</title>
+    <meta name="description" content="Calculators AM — fast, animated, all-in-one calculator suite: scientific, grade, tip, BMI, age, percentage, unit converter, loan EMI and live weather.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./Styles/style.css">
+    <link rel="stylesheet" href="./Styles/enhance.css">
+    <link rel="stylesheet" href="./Styles/redesign.css">
+</head>
+
+<body>
+
+    <!-- Page Loader -->
+    <div id="page-loader" aria-hidden="true">
+        <div class="loader-logo">
+            <svg viewBox="0 0 60 60" width="56" height="56">
+                <rect x="4" y="4" width="52" height="52" rx="14" fill="url(#loaderGrad)"/>
+                <defs>
+                    <linearGradient id="loaderGrad" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0" stop-color="#8b5cf6"/>
+                        <stop offset="1" stop-color="#d946ef"/>
+                    </linearGradient>
+                </defs>
+                <text x="30" y="39" text-anchor="middle" font-size="24" font-weight="700" fill="#fff" font-family="Arial">Σ</text>
+            </svg>
+        </div>
+        <div class="loader-bar"><span></span></div>
+    </div>
+
+    <!-- Animated background blobs -->
+    <div class="bg-blobs" aria-hidden="true">
+        <span class="blob blob-1"></span>
+        <span class="blob blob-2"></span>
+        <span class="blob blob-3"></span>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-container">
+
+            <a href="#home" class="brand">
+                <span class="brand-logo" aria-hidden="true">
+                    <svg viewBox="0 0 50 50" width="46" height="46">
+                        <rect x="1" y="1" width="48" height="48" rx="13" fill="url(#brandGrad)"/>
+                        <rect x="1" y="1" width="48" height="48" rx="13" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="1"/>
+                        <text x="25" y="33" text-anchor="middle" font-size="22" font-weight="800" fill="#fff" font-family="Arial">Σ</text>
+                        <defs>
+                            <linearGradient id="brandGrad" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0" stop-color="#8b5cf6"/>
+                                <stop offset="1" stop-color="#d946ef"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </span>
+
+                <div class="brand-text">
+                    <h1>Calculators AM</h1>
+                    <span>Smart and Simple Calculations</span>
+                </div>
+            </a>
+
+            <nav class="main-nav" aria-label="Main navigation" id="main-nav">
+                <ul>
+                    <li>
+                        <a href="#home" class="active">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="#simple">Simple</a>
+                    </li>
+
+                    <li>
+                        <a href="#scientific">Scientific</a>
+                    </li>
+
+                    <li>
+                        <a href="#grade">Grade</a>
+                    </li>
+
+                    <li>
+                        <a href="#tip">Tip</a>
+                    </li>
+                    <li>
+                        <a href="#bmi">BMI</a>
+                    </li>
+                    <li>
+                        <a href="#age">Age</a>
+                    </li>
+                    <li>
+                        <a href="#percentage">Percentage</a>
+                    </li>
+                    <li>
+                        <a href="#converter">Convert</a>
+                    </li>
+                    <li>
+                        <a href="#loan">EMI</a>
+                    </li>
+                     <li>
+                        <a href="#weather">Weather</a>
+                    </li>
+                    <li>
+                        <a href="#about">About</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button type="button" id="theme-toggle" class="icon-btn" aria-label="Toggle light and dark theme" title="Toggle theme">
+                    <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+                    <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                </button>
+                <button type="button" id="nav-toggle" class="icon-btn hamburger" aria-label="Open menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+
+        </div>
+    </header>
+    <div id="nav-overlay"></div>
+
+    <main>
+
+        <!-- Home Section -->
+        <section id="home" class="home-section">
+            <div class="home-content reveal">
+                <span class="eyebrow">10 Tools · 1 Website</span>
+                <h2>Welcome to <span class="grad-text">Calculators AM</span></h2>
+
+                <p>
+                    Fast, simple, and accurate calculators for your everyday needs —
+                    now with a scientific mode, unit converter, loan EMI, age &amp; percentage tools.
+                </p>
+
+                <div class="home-btn-group">
+                    <a href="#simple" class="home-btn">
+                        Start Calculating
+                    </a>
+                    <a href="#scientific" class="home-btn home-btn-ghost">
+                        Try Scientific Mode
+                    </a>
+                </div>
+
+                <div class="home-stats">
+                    <div class="stat"><strong data-count="10">0</strong><span>Calculators</span></div>
+                    <div class="stat"><strong data-count="100">0</strong><span>% Free</span></div>
+                    <div class="stat"><strong data-count="24">0</strong><span>/7 Access</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Simple Calculator -->
+        <section id="simple">
+            <div class="Simple-calculator reveal">
+
+                <h2>
+                    <span class="section-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="11" x2="8" y2="11.01"/><line x1="12" y1="11" x2="12" y2="11.01"/><line x1="16" y1="11" x2="16" y2="11.01"/><line x1="8" y1="15" x2="8" y2="15.01"/><line x1="12" y1="15" x2="12" y2="15.01"/><line x1="16" y1="15" x2="16" y2="15.01"/><line x1="8" y1="19" x2="16" y2="19"/></svg>
+                    </span>
+                    Simple Calculator
+                </h2>
+
+                <div class="box">
+
+                    <input type="number" id="a" placeholder="Enter first number" step="any">
+
+                    <select id="op" aria-label="Select an operator">
+                        <option value="+">+</option>
+                        <option value="-">−</option>
+                        <option value="*">×</option>
+                        <option value="/">÷</option>
+                    </select>
+
+                    <input type="number" id="b" placeholder="Enter second number" step="any">
+
+                    <button type="button" id="calculate">
+                        Calculate
+                    </button>
+
+                    <div class="result">
+                        <input type="text" id="result" placeholder="Result will be shown here" readonly>
+                    </div>
+
+                    <button type="button" id="simple-refresh" class="refresh-btn">
+                        Refresh
+                    </button>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Grade Calculator -->
+        <section id="grade">
+            <div class="Grade-calculator reveal">
+
+                <h2>
+                    <span class="section-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 6.6L21 9l-5 4.5L17.4 21 12 17l-5.4 4L8 13.5 3 9l6.6-.4z"/></svg></span>
+                    Grade Calculator
+                </h2>
+
+                <div class="box">
+
+                    <input type="number" id="marks" placeholder="Enter your marks" min="0" max="100" step="any">
+
+                    <button type="button" id="btn">
+                        Calculate Grade
+                    </button>
+
+                    <div class="result">
+                        <input type="text" id="grade-result" placeholder="Your grade will be shown here" readonly>
+                    </div>
+
+                    <button type="button" id="grade-refresh" class="refresh-btn">
+                        Refresh
+                    </button>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Tip Calculator -->
+        <section id="tip">
+            <div class="Tip-calculator reveal">
+
+                <h2>
+                    <span class="section-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+                    Tip Calculator
+                </h2>
+
+                <div class="box">
+
+                    <!-- Bill amount and currency -->
+                    <div class="input-group">
+                        <input type="number" id="bill-amount" placeholder="Enter bill amount" min="0" step="any">
+
+                        <select id="currency" aria-label="Select currency">
+                            <option value="$">USD ($)</option>
+                            <option value="৳">BDT (৳)</option>
+                            <option value="€">EUR (€)</option>
+                            <option value="£">GBP (£)</option>
+                            <option value="₹">INR (₹)</option>
+                        </select>
+                    </div>
+
+                    <!-- Tip percentage -->
+                    <div class="input-group">
+                        <input type="number" id="tip-percentage" placeholder="Tip percentage" value="10" min="0"
+                            step="any">
+
+                        <select id="tip-option" aria-label="Select tip percentage">
+                            <option value="5">5%</option>
+                            <option value="10" selected>10%</option>
+                            <option value="15">15%</option>
+                            <option value="20">20%</option>
+                            <option value="25">25%</option>
+                        </select>
+                    </div>
+
+                    <!-- Number of people -->
+                    <input type="number" id="number-of-people" placeholder="Number of people" value="1" min="1"
+                        step="1">
+
+                    <!-- Calculate button -->
+                    <button type="button" id="tip-calculate">
+                        Calculate Tip
+                    </button>
+
+                    <!-- Result Section -->
+                    <div class="tip-result">
+
+                        <div class="result-item">
+                            <span>Tip Amount</span>
+                            <strong id="tip-amount-result">$0.00</strong>
+                        </div>
+
+                        <div class="result-item">
+                            <span>Total Amount</span>
+                            <strong id="total-bill-result">$0.00</strong>
+                        </div>
+
+                        <div class="result-item">
+                            <span>Amount Per Person</span>
+                            <strong id="per-person-result">$0.00</strong>
+                        </div>
+
+                    </div>
+
+                    <!-- Refresh button -->
+                    <button type="button" id="tip-refresh" class="refresh-btn">
+                        Refresh
+                    </button>
+
+                </div>
+            </div>
+
+           <!-- Scientific Calculator Section -->
+        <section id="scientific">
+            <div class="Scientific-calculator reveal">
+                <h2>
+                    <span class="section-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><circle cx="8" cy="11" r="1"/><circle cx="12" cy="11" r="1"/><circle cx="16" cy="11" r="1"/><circle cx="8" cy="15" r="1"/><circle cx="12" cy="15" r="1"/><circle cx="16" cy="15" r="1"/></svg></span>
+                    Advanced Scientific Calculator
+                </h2>
+                
+                <div class="box casio-wrapper">
+                    <div class="casio-body">
+                        <div class="casio-header">
+                            <span class="brand">CASIO</span>
+                            <span class="model">fx-991EX <span>CLASSWIZ</span></span>
+                        </div>
+                        
+                        <div class="screen-container">
+                            <div class="status-bar">
+                                <span id="shift-indicator"></span>
+                                <span id="alpha-indicator"></span>
+                                <span id="memory-indicator"></span>
+                                <span id="mode-indicator" class="mode-clickable" onclick="toggleMode()" title="Click to switch DEG / RAD / GRAD">DEG</span>
+                                <span class="math-ind">MATH</span>
+                            </div>
+                            <div id="ex-history-line"></div>
+                            <input type="text" id="ex-display" disabled>
+                        </div>
+
+                        <!-- History Panel -->
+                        <div class="history-panel" id="history-panel">
+                            <div class="history-head">
+                                <span>History</span>
+                                <button type="button" id="history-clear" title="Clear history">Clear</button>
+                            </div>
+                            <ul id="history-list"><li class="history-empty">No calculations yet</li></ul>
+                        </div>
+
+                        <!-- Extra function row: memory + factorial/combinatorics/hyperbolic -->
+                        <div class="keypad keypad-extra">
+                            <button type="button" class="btn-mem" onclick="memoryClear()">MC</button>
+                            <button type="button" class="btn-mem" onclick="memoryRecall()">MR</button>
+                            <button type="button" class="btn-mem" onclick="memoryAdd()">M+</button>
+                            <button type="button" class="btn-mem" onclick="memorySub()">M−</button>
+                            <button type="button" class="btn-func dual" onclick="handleFunc('!', 'nPr(')"><span>nPr</span>x!</button>
+                            <button type="button" class="btn-func dual" onclick="handleFunc('%', 'nCr(')"><span>nCr</span>%</button>
+                            <button type="button" class="btn-func dual" onclick="handleFunc('sinh(', 'cosh(')"><span>cosh</span>sinh</button>
+                            <button type="button" class="btn-func dual" onclick="handleFunc('tanh(', '1/(')"><span>1/x</span>tanh</button>
+                            <button type="button" id="history-toggle" class="btn-func" onclick="toggleHistory()">HIST</button>
+                        </div>
+
+                        <div class="keypad">
+                            <button type="button" class="btn-shift" onclick="toggleShift()">SHIFT</button>
+                            <button type="button" class="btn-alpha" onclick="toggleAlpha()">ALPHA</button>
+                            <button type="button" class="btn-mode" onclick="toggleMode()">MODE</button>
+                            <button type="button" class="btn-func dual" onclick="handleFunc('det', 'inv')"><span>inv</span>det</button>
+                            <button type="button" class="btn-func dual" onclick="handleFunc('x²', '√(')"><span>√</span>x²</button>
+
+                            <button type="button" class="btn-func dual" onclick="handleFunc('^', 'cbrt(')"><span>∛</span>xⁿ</button>
+                            <button type="button" class="btn-func dual" onclick="handleFunc('log(', '10^')"><span>10ˣ</span>log</button>
+                            <button type="button" class="btn-func dual" onclick="handleFunc('ln(', 'e^')"><span>eˣ</span>ln</button>
+                            <button type="button" class="btn-func" onclick="insertVal('(')">(</button>
+                            <button type="button" class="btn-func dual" onclick="handleFunc(')', 'x')"><span class="red">x</span>)</button>
+
+                            <button type="button" class="btn-func dual" onclick="handleFunc('sin(', 'asin(')"><span>sin⁻¹</span>sin</button>
+                            <button type="button" class="btn-func dual" onclick="handleFunc('cos(', 'acos(')"><span>cos⁻¹</span>cos</button>
+                            <button type="button" class="btn-func dual" onclick="handleFunc('tan(', 'atan(')"><span>tan⁻¹</span>tan</button>
+                            <button type="button" class="btn-del" onclick="deleteChar()">DEL</button>
+                            <button type="button" class="btn-ac" onclick="clearAll()">AC</button>
+
+                            <button type="button" class="btn-num" onclick="insertVal('7')">7</button>
+                            <button type="button" class="btn-num" onclick="insertVal('8')">8</button>
+                            <button type="button" class="btn-num" onclick="insertVal('9')">9</button>
+                            <button type="button" class="btn-del dual" onclick="handleFunc('×', '[')"><span>[</span>×</button>
+                            <button type="button" class="btn-del dual" onclick="handleFunc('÷', ']')"><span>]</span>÷</button>
+
+                            <button type="button" class="btn-num" onclick="insertVal('4')">4</button>
+                            <button type="button" class="btn-num" onclick="insertVal('5')">5</button>
+                            <button type="button" class="btn-num" onclick="insertVal('6')">6</button>
+                            <button type="button" class="btn-op dual" onclick="handleFunc('+', '{')"><span>{</span>+</button>
+                            <button type="button" class="btn-op dual" onclick="handleFunc('-', '}')"><span>}</span>-</button>
+
+                            <button type="button" class="btn-num" onclick="insertVal('1')">1</button>
+                            <button type="button" class="btn-num" onclick="insertVal('2')">2</button>
+                            <button type="button" class="btn-num" onclick="insertVal('3')">3</button>
+                            <button type="button" class="btn-op" onclick="insertVal(',')">,</button>
+                            <button type="button" class="btn-eq" onclick="calculateEx()">=</button>
+
+                            <button type="button" class="btn-num" onclick="insertVal('0')">0</button>
+                            <button type="button" class="btn-num" onclick="insertVal('.')">.</button>
+                            <button type="button" class="btn-num dual" onclick="handleFunc('×10^', 'π')"><span>π</span>EXP</button>
+                            <button type="button" class="btn-ans" onclick="insertVal('Ans')">Ans</button>
+                            <button type="button" class="btn-eq" onclick="calculateEx()">=</button>
+                        </div>
+                        <p class="keyboard-hint">⌨ Keyboard supported: numbers, + − × / ( ), Enter = "=", Backspace = delete, Esc = AC</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- BMI Calculator Section -->
+        <section id="bmi">
+            <div class="BMI-calculator reveal">
+
+                <h2>
+                    <!-- আইকনের জন্য bmi.png নামের একটি ছবি আপনার images ফোল্ডারে রাখতে হবে -->
+                    <span class="section-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="3"/><path d="M12 10v4M9 21l3-7 3 7M6 14h12"/></svg></span>
+                    BMI Calculator
+                </h2>
+
+                <div class="box">
+
+                    <input type="number" id="bmi-weight" placeholder="Enter your weight (kg)" min="0" step="any">
+                    <input type="number" id="bmi-height" placeholder="Enter your height (cm)" min="0" step="any">
+
+                    <button type="button" id="bmi-btn">
+                        Calculate BMI
+                    </button>
+
+                    <div class="result">
+                        <input type="text" id="bmi-result" placeholder="Your BMI will be shown here" readonly>
+                    </div>
+
+                    <div class="result" style="margin-top: 10px;">
+                        <input type="text" id="bmi-category" placeholder="Category will be shown here" readonly>
+                    </div>
+
+                    <button type="button" id="bmi-refresh" class="refresh-btn">
+                        Refresh
+                    </button>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Age Calculator Section -->
+        <section id="age">
+            <div class="Age-calculator reveal">
+                <h2>
+                    <span class="section-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
+                    Age Calculator
+                </h2>
+
+                <div class="box">
+                    <input type="date" id="age-dob" aria-label="Date of birth">
+
+                    <button type="button" id="age-btn">
+                        Calculate Age
+                    </button>
+
+                    <div class="age-result-grid" id="age-result-grid" hidden>
+                        <div class="age-chip"><strong id="age-years">0</strong><span>Years</span></div>
+                        <div class="age-chip"><strong id="age-months">0</strong><span>Months</span></div>
+                        <div class="age-chip"><strong id="age-days">0</strong><span>Days</span></div>
+                    </div>
+
+                    <div class="result">
+                        <input type="text" id="age-next-birthday" placeholder="Days to your next birthday will be shown here" readonly>
+                    </div>
+
+                    <button type="button" id="age-refresh" class="refresh-btn">
+                        Refresh
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Percentage Calculator Section -->
+        <section id="percentage">
+            <div class="Percentage-calculator reveal">
+                <h2>
+                    <span class="section-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></span>
+                    Percentage Calculator
+                </h2>
+
+                <div class="box">
+                    <div class="tabs" role="tablist" aria-label="Percentage calculation mode">
+                        <button type="button" class="tab-btn active" data-mode="of">X% of Y</button>
+                        <button type="button" class="tab-btn" data-mode="is">X is what % of Y</button>
+                        <button type="button" class="tab-btn" data-mode="change">% Increase/Decrease</button>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="number" id="pct-x" placeholder="X" step="any">
+                        <input type="number" id="pct-y" placeholder="Y" step="any">
+                    </div>
+
+                    <button type="button" id="pct-calculate">
+                        Calculate
+                    </button>
+
+                    <div class="result">
+                        <input type="text" id="pct-result" placeholder="Result will be shown here" readonly>
+                    </div>
+
+                    <button type="button" id="pct-refresh" class="refresh-btn">
+                        Refresh
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Unit Converter Section -->
+        <section id="converter">
+            <div class="Converter-calculator reveal">
+                <h2>
+                    <span class="section-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 10l5-5 5 5M7 14l5 5 5-5"/></svg></span>
+                    Unit Converter
+                </h2>
+
+                <div class="box">
+                    <div class="tabs" role="tablist" aria-label="Unit category">
+                        <button type="button" class="tab-btn active" data-unit="length">Length</button>
+                        <button type="button" class="tab-btn" data-unit="weight">Weight</button>
+                        <button type="button" class="tab-btn" data-unit="temperature">Temperature</button>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="number" id="conv-value" placeholder="Enter value" step="any">
+                        <select id="conv-from" aria-label="Convert from unit"></select>
+                    </div>
+
+                    <div class="convert-arrow">⇅</div>
+
+                    <div class="input-group">
+                        <input type="text" id="conv-result" placeholder="Result" readonly>
+                        <select id="conv-to" aria-label="Convert to unit"></select>
+                    </div>
+
+                    <button type="button" id="conv-refresh" class="refresh-btn">
+                        Refresh
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Loan / EMI Calculator Section -->
+        <section id="loan">
+            <div class="Loan-calculator reveal">
+                <h2>
+                    <span class="section-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="13" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="6" y1="15" x2="10" y2="15"/></svg></span>
+                    Loan / EMI Calculator
+                </h2>
+
+                <div class="box">
+                    <input type="number" id="loan-principal" placeholder="Loan amount" min="0" step="any">
+                    <input type="number" id="loan-rate" placeholder="Annual interest rate (%)" min="0" step="any">
+                    <input type="number" id="loan-tenure" placeholder="Tenure (years)" min="0" step="any">
+
+                    <button type="button" id="loan-calculate">
+                        Calculate EMI
+                    </button>
+
+                    <div class="tip-result">
+                        <div class="result-item">
+                            <span>Monthly EMI</span>
+                            <strong id="loan-emi-result">0.00</strong>
+                        </div>
+
+                        <div class="result-item">
+                            <span>Total Interest</span>
+                            <strong id="loan-interest-result">0.00</strong>
+                        </div>
+
+                        <div class="result-item">
+                            <span>Total Payment</span>
+                            <strong id="loan-total-result">0.00</strong>
+                        </div>
+                    </div>
+
+                    <button type="button" id="loan-refresh" class="refresh-btn">
+                        Refresh
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Weather Calculator Section -->
+        <section id="weather">
+            <div class="Weather-calculator reveal">
+
+                <h2>
+                    <span class="section-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.5 19H9a5 5 0 1 1 1.7-9.7A6 6 0 0 1 22 12.5 4.5 4.5 0 0 1 17.5 19z"/></svg></span>
+                    Live Weather Update
+                </h2>
+
+                <div class="box weather-wrapper">
+                    
+                    <!-- Updated Search Box with Auto Suggestion -->
+                    <div class="search-box relative-box">
+                        <input type="text" id="city-input" placeholder="Type city (e.g. Dhaka, Bogura)" autocomplete="off">
+                        <button type="button" id="search-btn">Search</button>
+                        
+                        <!-- Auto Suggestions Dropdown -->
+                        <ul id="suggestions-list" class="suggestions-dropdown hidden"></ul>
+                    </div>
+
+                    <!-- Error Message -->
+                    <div id="weather-error" class="weather-error hidden">
+                        Location not found. Please try again!
+                    </div>
+
+                    <!-- Weather Result (Hidden by default) -->
+                    <div id="weather-result" class="weather-result hidden">
+                        <h3 id="city-name">Dhaka, Bangladesh</h3>
+                        <p id="weather-date">Thursday, 13 Aug 2026</p>
+                        
+                        <div class="weather-main">
+                            <img id="weather-icon" src="" alt="Weather Icon">
+                            <h1 id="temperature">--°C</h1>
+                        </div>
+                        <p id="weather-desc" class="desc">Clear Sky</p>
+                        
+                        <div class="weather-details">
+                            <div class="detail-card">
+                                <span>Feels Like</span>
+                                <strong id="feels-like">--°C</strong>
+                            </div>
+                            <div class="detail-card">
+                                <span>Humidity</span>
+                                <strong id="humidity">--%</strong>
+                            </div>
+                            <div class="detail-card">
+                                <span>Wind Speed</span>
+                                <strong id="wind-speed">-- km/h</strong>
+                            </div>
+                            <div class="detail-card">
+                                <span>Pressure</span>
+                                <strong id="pressure">-- hPa</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="About reveal">
+
+                <h2>
+                    <span class="section-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="8.01"/></svg></span>
+                    About
+                </h2>
+
+                <p>
+                    Welcome to Calculators AM! Our website provides a complete
+                    suite of calculators to make everyday calculations faster
+                    and easier — a Simple Calculator, a full scientific
+                    calculator with DEG/RAD/GRAD modes and memory, Grade, Tip,
+                    BMI, Age, Percentage, Unit Converter, Loan/EMI, and live
+                    Weather. Our goal is to provide a simple, accurate, and
+                    user-friendly calculation experience. Thank you for visiting
+                    our website!
+                </p>
+
+            </div>
+        </section>
+
+    </main>
+    <footer class="site-footer">
+        <div class="footer-container">
+
+            <div class="footer-brand">
+                <a href="#home" class="footer-logo">
+                    <svg viewBox="0 0 50 50" width="44" height="44"><rect x="1" y="1" width="48" height="48" rx="13" fill="url(#footerGrad)"/><text x="25" y="33" text-anchor="middle" font-size="22" font-weight="800" fill="#fff" font-family="Arial">Σ</text><defs><linearGradient id="footerGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8b5cf6"/><stop offset="1" stop-color="#d946ef"/></linearGradient></defs></svg>
+
+                    <div>
+                        <h3>Calculators AM</h3>
+                        <p>Smart and Simple Calculations</p>
+                    </div>
+                </a>
+
+                <p class="footer-description">
+                    Simple, accurate and user-friendly calculators for everyday use.
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+
+                <a href="#home">Home</a>
+                <a href="#simple">Simple Calculator</a>
+                <a href="#scientific">Scientific Calculator</a>
+                <a href="#grade">Grade Calculator</a>
+                <a href="#tip">Tip Calculator</a>
+                <a href="#bmi">BMI Calculator</a>
+                <a href="#age">Age Calculator</a>
+                <a href="#percentage">Percentage Calculator</a>
+                <a href="#converter">Unit Converter</a>
+                <a href="#loan">Loan EMI Calculator</a>
+                <a href="#weather">Weather</a>
+                <a href="#about">About</a>
+
+            </div>
+
+            <div class="footer-contact">
+                <h3>Contact</h3>
+
+                <a href="mailto:akashislamcse6644@gmail.com">
+                    <span class="footer-icon">@</span>
+                    akashislamcse6644@gmail.com
+                </a>
+
+                <a href="tel:+8801785039400">
+                    <span class="footer-icon">☎</span>
+                    +880 1785039400
+                </a>
+            </div>
+
+            <div class="footer-social">
+                <h3>Follow Me</h3>
+
+                <div class="social-links">
+                    <a href="https://github.com/akashcse02" target="_blank" rel="noopener noreferrer"
+                        aria-label="GitHub" title="GitHub">
+                        GH
+                    </a>
+
+                    <a href="https://www.facebook.com/md.akash.islam.61460" target="_blank" rel="noopener noreferrer"
+                        aria-label="Facebook" title="Facebook">
+                        FB
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/md-akash-islam-18a162319/" target="_blank"
+                        rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+                        IN
+                    </a>
+
+                    <a href="YOUR_INSTAGRAM_URL" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
+                        title="Instagram">
+                        IG
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>
+                &copy; <span id="current-year">2026</span>
+                Calculators AM. All rights reserved.
+            </p>
+
+            <p>
+                Designed and Developed by
+                <a href="https://github.com/akashcse02/Calculators" target="_blank" rel="noopener noreferrer">
+                    Akash Islam
+                </a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Back to top -->
+    <button type="button" id="back-to-top" aria-label="Back to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+    </button>
+
+    <!-- Toast notification -->
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <script src="./script.js"></script>
+    <script src="./enhance.js"></script>
+
+</body>
+
+</html>

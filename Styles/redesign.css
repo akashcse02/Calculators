@@ -1,0 +1,363 @@
+/* =====================================================
+   Calculators AM — FULL VISUAL REDESIGN
+   New palette, typography, glass UI, gradient system.
+   Loaded last so it overrides style.css + enhance.css.
+===================================================== */
+
+:root {
+    --page-bg: #0a0118;
+    --navy: #1a0b3d;
+    --navy-light: #241154;
+    --blue: #8b5cf6;
+    --indigo: #d946ef;
+    --cyan: #22d3ee;
+    --text: #f5f3ff;
+    --muted: #cbd0f5;
+    --muted-dark: #9891c4;
+    --input-start: #1c0f42;
+    --input-end: #2a1257;
+    --input-border: #7c3aed;
+    --radius-small: 14px;
+    --radius-large: 28px;
+    --transition: 0.25s ease;
+
+    --grad-main: linear-gradient(135deg, #8b5cf6 0%, #d946ef 55%, #f97316 100%);
+    --grad-cool: linear-gradient(135deg, #7c3aed, #22d3ee);
+    --glass-bg: rgba(255, 255, 255, 0.055);
+    --glass-border: rgba(255, 255, 255, 0.14);
+}
+
+* {
+    font-family: "Sora", Arial, sans-serif !important;
+}
+
+body {
+    background:
+        radial-gradient(ellipse 900px 500px at 12% -5%, rgba(139, 92, 246, 0.28), transparent 60%),
+        radial-gradient(ellipse 800px 500px at 95% 15%, rgba(217, 70, 239, 0.2), transparent 55%),
+        radial-gradient(ellipse 700px 500px at 50% 100%, rgba(34, 211, 238, 0.14), transparent 55%),
+        linear-gradient(180deg, #0a0118, #0d021f 40%, #0a0118);
+    background-attachment: fixed;
+}
+
+/* faint grid texture — kept subtle so it never reads as a rendering glitch */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    opacity: 0.5;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    background-size: 42px 42px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 20%, #000 40%, transparent 90%);
+}
+
+.blob-1 { background: radial-gradient(circle, #8b5cf6, transparent 70%); }
+.blob-2 { background: radial-gradient(circle, #22d3ee, transparent 70%); }
+.blob-3 { background: radial-gradient(circle, #d946ef, transparent 70%); }
+
+h1, h2, h3, .brand-text h1 {
+    font-family: "Space Grotesk", "Sora", Arial, sans-serif !important;
+    letter-spacing: -0.01em;
+}
+
+/* ---------- Header: solid full-width sticky bar (no overlap, no float) ---------- */
+.site-header {
+    position: sticky !important;
+    top: 0 !important;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    width: 100% !important;
+    margin: 0 !important;
+    background: rgba(13, 5, 31, 0.92) !important;
+    backdrop-filter: blur(14px) saturate(150%);
+    -webkit-backdrop-filter: blur(14px) saturate(150%);
+    border: none !important;
+    border-bottom: 1px solid var(--glass-border) !important;
+    border-radius: 0 !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+.header-container {
+    width: min(1280px, 94%);
+    margin: 0 auto;
+    padding: 12px 0 !important;
+    flex-wrap: nowrap;
+}
+
+.brand-text span {
+    color: var(--muted-dark) !important;
+}
+
+.main-nav ul {
+    flex-wrap: wrap;
+    row-gap: 6px;
+    column-gap: 4px !important;
+    justify-content: flex-end;
+}
+
+.main-nav a {
+    padding: 9px 12px !important;
+    font-size: 13px !important;
+    white-space: nowrap;
+    border-radius: 999px !important;
+    font-weight: 600 !important;
+    transition: var(--transition);
+}
+
+.main-nav a.active,
+.main-nav a:hover {
+    background: var(--grad-main) !important;
+    color: #fff !important;
+    box-shadow: 0 6px 18px rgba(139, 92, 246, 0.45);
+}
+
+.icon-btn {
+    border-radius: 999px !important;
+    background: var(--glass-bg) !important;
+    border: 1px solid var(--glass-border) !important;
+}
+
+/* ---------- Hero ---------- */
+.home-section {
+    padding-top: 55px !important;
+    padding-bottom: 55px !important;
+}
+
+.eyebrow {
+    background: rgba(217, 70, 239, 0.16) !important;
+    border-color: rgba(217, 70, 239, 0.45) !important;
+    color: #f0abfc !important;
+    border-radius: 999px !important;
+}
+
+/* Gradient text — needs the -webkit-* pair or it renders as a solid block instead of clipped text */
+.grad-text {
+    display: inline-block;
+    background: var(--grad-main) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    color: transparent !important;
+}
+
+.home-content h2 {
+    display: block !important;
+    font-size: clamp(30px, 5.4vw, 52px) !important;
+    line-height: 1.15 !important;
+    font-weight: 800 !important;
+}
+
+.home-btn {
+    background: var(--grad-main) !important;
+    border: none !important;
+    border-radius: 999px !important;
+    font-weight: 700 !important;
+    box-shadow: 0 10px 30px rgba(217, 70, 239, 0.35) !important;
+}
+
+.home-btn-ghost {
+    background: var(--glass-bg) !important;
+    border: 1px solid var(--glass-border) !important;
+    box-shadow: none !important;
+}
+
+.home-stats .stat strong {
+    display: inline-block;
+    background: var(--grad-cool) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    color: transparent !important;
+    font-size: 30px !important;
+}
+
+/* ---------- Section headings ---------- */
+h2 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-weight: 800 !important;
+}
+
+.section-icon {
+    background: var(--grad-main) !important;
+    color: #fff !important;
+    border-radius: 12px !important;
+    box-shadow: 0 6px 18px rgba(139, 92, 246, 0.4);
+}
+
+/* ---------- Glass cards for every calculator box ---------- */
+.Simple-calculator .box,
+.Grade-calculator .box,
+.Tip-calculator .box,
+.BMI-calculator .box,
+.Age-calculator .box,
+.Percentage-calculator .box,
+.Converter-calculator .box,
+.Loan-calculator .box,
+.Weather-calculator .box,
+.About,
+.casio-body {
+    background: var(--glass-bg) !important;
+    border: 1px solid var(--glass-border) !important;
+    border-radius: var(--radius-large) !important;
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.06) !important;
+    transition: box-shadow 0.35s ease, transform 0.35s ease;
+}
+
+.Simple-calculator .box:hover,
+.Grade-calculator .box:hover,
+.Tip-calculator .box:hover,
+.BMI-calculator .box:hover,
+.Age-calculator .box:hover,
+.Percentage-calculator .box:hover,
+.Converter-calculator .box:hover,
+.Loan-calculator .box:hover,
+.Weather-calculator .box:hover,
+.casio-body:hover {
+    box-shadow: 0 24px 70px rgba(139, 92, 246, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Inputs */
+input, select {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid var(--glass-border) !important;
+    border-radius: var(--radius-small) !important;
+    color: var(--text) !important;
+}
+
+input:focus, select:focus {
+    border-color: var(--cyan) !important;
+    box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.22) !important;
+}
+
+/* ---------- Primary action buttons ---------- */
+#calculate, #btn, #tip-calculate, #bmi-btn, #age-btn, #pct-calculate, #loan-calculate,
+.refresh-btn, #history-clear, .tab-btn.active {
+    border-radius: 999px !important;
+    font-weight: 700 !important;
+    border: none !important;
+}
+
+#calculate, #btn, #tip-calculate, #bmi-btn, #age-btn, #pct-calculate, #loan-calculate {
+    background: var(--grad-main) !important;
+    box-shadow: 0 10px 28px rgba(217, 70, 239, 0.3) !important;
+}
+
+.tab-btn.active {
+    background: var(--grad-cool) !important;
+    box-shadow: 0 6px 18px rgba(34, 211, 238, 0.35) !important;
+}
+
+.refresh-btn {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid var(--glass-border) !important;
+}
+
+/* ---------- Scientific calculator recolor ---------- */
+.status-bar, .screen-container {
+    border-radius: var(--radius-small) !important;
+}
+
+.btn-eq {
+    background: var(--grad-main) !important;
+    border-radius: 14px !important;
+}
+
+.btn-ac {
+    background: linear-gradient(135deg, #f97316, #ef4444) !important;
+    border-radius: 14px !important;
+}
+
+.btn-del {
+    background: linear-gradient(135deg, #64748b, #475569) !important;
+    border-radius: 14px !important;
+}
+
+.btn-num {
+    background: rgba(255, 255, 255, 0.06) !important;
+    border-radius: 14px !important;
+}
+
+.btn-op {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6) !important;
+    border-radius: 14px !important;
+}
+
+.btn-func {
+    background: rgba(139, 92, 246, 0.14) !important;
+    border-radius: 14px !important;
+}
+
+.btn-shift, .btn-alpha, .btn-mode {
+    border-radius: 14px !important;
+}
+
+.btn-mem {
+    background: linear-gradient(135deg, #f59e0b, #f97316) !important;
+    color: #1a0b3d !important;
+    border-radius: 12px !important;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+    background: #0a0118 !important;
+    border-top: 1px solid var(--glass-border);
+}
+
+/* ---------- Scrollbar accent ---------- */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #0a0118; }
+::-webkit-scrollbar-thumb {
+    background: var(--grad-cool);
+    border-radius: 10px;
+}
+
+/* ---------- Light theme companion ---------- */
+body.light-theme {
+    background:
+        radial-gradient(ellipse 900px 500px at 10% -5%, rgba(139, 92, 246, 0.12), transparent 60%),
+        radial-gradient(ellipse 800px 500px at 95% 10%, rgba(217, 70, 239, 0.1), transparent 55%),
+        linear-gradient(180deg, #faf7ff, #f3edff 40%, #faf7ff) !important;
+}
+
+body.light-theme::before { opacity: 0.4; }
+
+body.light-theme .site-header {
+    background: rgba(255, 255, 255, 0.65) !important;
+    border-color: rgba(124, 58, 237, 0.18) !important;
+}
+
+body.light-theme .Simple-calculator .box,
+body.light-theme .Grade-calculator .box,
+body.light-theme .Tip-calculator .box,
+body.light-theme .BMI-calculator .box,
+body.light-theme .Age-calculator .box,
+body.light-theme .Percentage-calculator .box,
+body.light-theme .Converter-calculator .box,
+body.light-theme .Loan-calculator .box,
+body.light-theme .Weather-calculator .box,
+body.light-theme .About,
+body.light-theme .casio-body {
+    background: rgba(255, 255, 255, 0.72) !important;
+    border-color: rgba(124, 58, 237, 0.16) !important;
+}
+
+body.light-theme .home-content p,
+body.light-theme p,
+body.light-theme .brand-text span {
+    color: #5b5478 !important;
+}
+
+body.light-theme h2, body.light-theme .brand-text h1 {
+    color: #1a0b3d !important;
+}
