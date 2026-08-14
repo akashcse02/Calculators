@@ -118,6 +118,29 @@ input[type="number"] {
     border-radius: 12px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
 }
+.logo-link {
+    text-decoration: none;
+    display: inline-block;
+}
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.brand-logo img {
+    height: 70px; 
+    width: auto;
+    object-fit: contain;
+    mix-blend-mode: multiply; 
+    transition: all 0.3s ease-in-out; 
+}
+
+.logo-link:hover .brand-logo img {
+    transform: scale(1.08); 
+    filter: drop-shadow(0px 8px 12px rgba(0, 0, 0, 0.15)); 
+}
 
 .brand-text h1 {
     margin: 0;
